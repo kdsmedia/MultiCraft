@@ -5,4 +5,4 @@ NDK_TOOLCHAIN_VERSION := 4.9
 APP_DEPRECATED_HEADERS := true
 APP_MODULES := multicraft
 
-APP_CPPFLAGS += -fexceptions -frtti
+APP_CPPFLAGS += -fexceptions -frtti -std=c++11
