@@ -1,0 +1,79 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+
+    defaultConfig {
+        applicationId "mobi.MultiCraft"
+        minSdkVersion 16
+        targetSdkVersion 27
+    }
+	Properties props = new Properties()
+	props.load(new FileInputStream(file("local.properties")))
+
+	if (props.getProperty("keystore") != null) {
+		signingConfigs {
+			release {
+				storeFile file(props["keystore"])
+				storePassword props["keystore.password"]
+				keyAlias props["key"]
+				keyPassword props["key.password"]
+			}
+		}
+
+		buildTypes {
+			release {
+				signingConfig signingConfigs.release
+			}
+		}
+	}
+// for multiple APKs
+    splits {
+        abi {
+            enable true
+            reset()
+            include "armeabi-v7a", "x86"
+        }
+    }
+}
+
+// build multiple APKs for all ABI
+ext.abiCodes = ['armeabi-v7a': 1, x86: 2]
+import com.android.build.OutputFile
+
+android.applicationVariants.all { variant ->
+    variant.outputs.each { output ->
+        def baseAbiVersionCode =
+                project.ext.abiCodes.get(output.getFilter(OutputFile.ABI))
+        if (baseAbiVersionCode != null) {
+            output.versionCodeOverride =
+                    baseAbiVersionCode + variant.versionCode
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:support-compat:27.1.1'
+}
+
