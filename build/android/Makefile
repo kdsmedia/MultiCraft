@@ -7,7 +7,7 @@ SHELL := /bin/bash
 # GPROF = 1
 
 # build for build platform
-API = 16
+API = 21
 APP_PLATFORM = android-$(API)
 COMPILER_VERSION = 4.9
 
