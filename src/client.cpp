@@ -777,7 +777,7 @@ void Client::initLocalMapSaving(const Address &address,
 	const std::string world_path = porting::path_user
 		+ DIR_DELIM + "worlds"
 		+ DIR_DELIM + "server_"
-		+ hostname + "_" + std::to_string(address.getPort());
+		+ hostname + "_" + itos(address.getPort());
 
 	fs::CreateAllDirs(world_path);
 
