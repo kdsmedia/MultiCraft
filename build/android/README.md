@@ -33,7 +33,7 @@ When a menu or inventory is displayed:
 Special settings
 ----------------
 There are some settings especially useful for Android users. MultiCraft's config
-file can usually be found at /sdcard/Android/data/mobi.MultiCraft.
+file can usually be found at /sdcard/Android/data/com.altomedia.multicraft.
 
 * gui_scaling: this is a user-specified scaling factor for the GUI- In case
                main menu is too big or small on your device, try changing this

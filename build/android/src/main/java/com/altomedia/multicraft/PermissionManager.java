@@ -1,4 +1,4 @@
-package mobi.MultiCraft;
+package com.altomedia.multicraft;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
@@ -10,9 +10,9 @@ import java.util.ArrayList;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
-import static mobi.MultiCraft.PreferencesHelper.TAG_RESTORE_BACKUP;
-import static mobi.MultiCraft.PreferencesHelper.getLaunchTimes;
-import static mobi.MultiCraft.PreferencesHelper.saveSettings;
+import static com.altomedia.multicraft.PreferencesHelper.TAG_RESTORE_BACKUP;
+import static com.altomedia.multicraft.PreferencesHelper.getLaunchTimes;
+import static com.altomedia.multicraft.PreferencesHelper.saveSettings;
 
 class PermissionManager {
     static ArrayList<String> permissionsToRequest;

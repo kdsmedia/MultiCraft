@@ -1,4 +1,4 @@
-package mobi.MultiCraft;
+package com.altomedia.multicraft;
 
 
 public interface CallBackListener {

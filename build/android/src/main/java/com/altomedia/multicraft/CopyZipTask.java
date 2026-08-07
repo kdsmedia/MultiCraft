@@ -1,4 +1,4 @@
-package mobi.MultiCraft;
+package com.altomedia.multicraft;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.ref.WeakReference;
 
-import static mobi.MultiCraft.MainActivity.unzipLocation;
+import static com.altomedia.multicraft.MainActivity.unzipLocation;
 
 
 public class CopyZipTask extends AsyncTask<String, Void, String> {

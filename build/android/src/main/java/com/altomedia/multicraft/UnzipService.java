@@ -1,4 +1,4 @@
-package mobi.MultiCraft;
+package com.altomedia.multicraft;
 
 import android.app.IntentService;
 import android.app.NotificationChannel;
@@ -19,7 +19,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 
 public class UnzipService extends IntentService {
-    public static final String ACTION_UPDATE = "mobi.MultiCraft.UPDATE";
+    public static final String ACTION_UPDATE = "com.altomedia.multicraft.UPDATE";
     public static final String EXTRA_KEY_IN_FILE = "file";
     public static final String EXTRA_KEY_IN_LOCATION = "location";
     public static final String ACTION_PROGRESS = "progress";
@@ -28,7 +28,7 @@ public class UnzipService extends IntentService {
     private int id = 1;
 
     public UnzipService() {
-        super("mobi.MultiCraft.UnzipService");
+        super("com.altomedia.multicraft.UnzipService");
     }
 
     private void isDir(String dir, String unzipLocation) {
@@ -48,7 +48,7 @@ public class UnzipService extends IntentService {
 
     private void createNotification() {
         // There are hardcoding only for show it's just strings
-        String name = "mobi.MultiCraft";
+        String name = "com.altomedia.multicraft";
         String channelId = "MultiCraft channel"; // The user-visible name of the channel.
         String description = "notifications from MultiCraft"; // The user-visible description of the channel.
         NotificationCompat.Builder builder;

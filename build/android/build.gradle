@@ -24,7 +24,7 @@ android {
     buildToolsVersion "27.0.3"
 
     defaultConfig {
-        applicationId "mobi.MultiCraft"
+        applicationId "com.altomedia.multicraft"
         minSdkVersion 16
         targetSdkVersion 27
     }

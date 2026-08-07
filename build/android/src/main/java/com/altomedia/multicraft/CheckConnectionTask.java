@@ -1,4 +1,4 @@
-package mobi.MultiCraft;
+package com.altomedia.multicraft;
 
 import android.content.Context;
 import android.os.AsyncTask;

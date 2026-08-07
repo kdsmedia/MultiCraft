@@ -1,4 +1,4 @@
-package mobi.MultiCraft;
+package com.altomedia.multicraft;
 
 import android.Manifest;
 import android.app.Activity;
@@ -38,17 +38,17 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
-import static mobi.MultiCraft.PreferencesHelper.TAG_BUILD_NUMBER;
-import static mobi.MultiCraft.PreferencesHelper.TAG_CONSENT_ASKED;
-import static mobi.MultiCraft.PreferencesHelper.TAG_LAUNCH_TIMES;
-import static mobi.MultiCraft.PreferencesHelper.TAG_SHORTCUT_CREATED;
-import static mobi.MultiCraft.PreferencesHelper.getBuildNumber;
-import static mobi.MultiCraft.PreferencesHelper.getLaunchTimes;
-import static mobi.MultiCraft.PreferencesHelper.isAskConsent;
-import static mobi.MultiCraft.PreferencesHelper.isCreateShortcut;
-import static mobi.MultiCraft.PreferencesHelper.isRestored;
-import static mobi.MultiCraft.PreferencesHelper.loadSettings;
-import static mobi.MultiCraft.PreferencesHelper.saveSettings;
+import static com.altomedia.multicraft.PreferencesHelper.TAG_BUILD_NUMBER;
+import static com.altomedia.multicraft.PreferencesHelper.TAG_CONSENT_ASKED;
+import static com.altomedia.multicraft.PreferencesHelper.TAG_LAUNCH_TIMES;
+import static com.altomedia.multicraft.PreferencesHelper.TAG_SHORTCUT_CREATED;
+import static com.altomedia.multicraft.PreferencesHelper.getBuildNumber;
+import static com.altomedia.multicraft.PreferencesHelper.getLaunchTimes;
+import static com.altomedia.multicraft.PreferencesHelper.isAskConsent;
+import static com.altomedia.multicraft.PreferencesHelper.isCreateShortcut;
+import static com.altomedia.multicraft.PreferencesHelper.isRestored;
+import static com.altomedia.multicraft.PreferencesHelper.loadSettings;
+import static com.altomedia.multicraft.PreferencesHelper.saveSettings;
 
 public class MainActivity extends Activity implements WVersionManager.ActivityListener, CallBackListener, DialogsCallback {
     public final static int REQUEST_CODE = 104;
@@ -68,7 +68,7 @@ public class MainActivity extends Activity implements WVersionManager.ActivityLi
             "HU", "IE", "IT", "LV", "LT", "LU",
             "MT", "NL", "PL", "PT", "RO", "SK",
             "SI", "ES", "SE", "GB", "IS", "LI", "NO"};
-    private static String dataFolder = "/Android/data/mobi.MultiCraft/files/";
+    private static String dataFolder = "/Android/data/com.altomedia.multicraft/files/";
     public static String unzipLocation = Environment.getExternalStorageDirectory() + dataFolder;
     private ProgressBar mProgressBar;
     private ProgressBar mProgressBarIndeterminate;
