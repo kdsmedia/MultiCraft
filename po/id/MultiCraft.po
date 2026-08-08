@@ -2456,6 +2456,12 @@ msgid ""
 "light edge to transparent textures.  Apply this filter to clean that up\n"
 "at texture load time."
 msgstr ""
+"Tekstur tersaring dapat mencampur nilai RGB dengan tetangga yang sepenuhnya "
+"transparan,\n"
+"yang biasanya dibuang oleh pengoptimal PNG, terkadang menghasilkan tepi "
+"gelap atau\n"
+"terang pada tekstur transparan. Terapkan penyaring ini untuk membersihkannya\n"
+"saat tekstur dimuat."
 
 #: src/settings_translation_file.cpp
 msgid "Filtering"
@@ -2675,6 +2681,11 @@ msgid ""
 "call).\n"
 "* Instrument the sampler being used to update the statistics."
 msgstr ""
+"Profiler menginstrumentasi dirinya sendiri:\n"
+"* Instrumentasi fungsi kosong.\n"
+"Ini memperkirakan overhead yang ditambahkan oleh instrumentasi (+1 pemanggilan "
+"fungsi).\n"
+"* Instrumentasi sampler yang digunakan untuk memperbarui statistik."
 
 #: src/settings_translation_file.cpp
 msgid "Heat blend noise"
@@ -2899,34 +2910,40 @@ msgid ""
 "Instrument builtin.\n"
 "This is usually only needed by core/builtin contributors"
 msgstr ""
+"Instrumentasi bawaan.\n"
+"Ini biasanya hanya dibutuhkan oleh kontributor inti/bawaan"
 
 #: src/settings_translation_file.cpp
 msgid "Instrument chatcommands on registration."
-msgstr ""
+msgstr "Instrumentasi perintah obrolan saat didaftarkan."
 
 #: src/settings_translation_file.cpp
 msgid ""
 "Instrument global callback functions on registration.\n"
 "(anything you pass to a minetest.register_*() function)"
 msgstr ""
+"Instrumentasi fungsi panggilan balik global saat didaftarkan.\n"
+"(apa pun yang Anda berikan ke fungsi minetest.register_*())"
 
 #: src/settings_translation_file.cpp
 msgid ""
 "Instrument the action function of Active Block Modifiers on registration."
 msgstr ""
+"Instrumentasi fungsi aksi dari Active Block Modifiers saat didaftarkan."
 
 #: src/settings_translation_file.cpp
 msgid ""
 "Instrument the action function of Loading Block Modifiers on registration."
 msgstr ""
+"Instrumentasi fungsi aksi dari Loading Block Modifiers saat didaftarkan."
 
 #: src/settings_translation_file.cpp
 msgid "Instrument the methods of entities on registration."
-msgstr ""
+msgstr "Instrumentasi metode entitas saat didaftarkan."
 
 #: src/settings_translation_file.cpp
 msgid "Instrumentation"
-msgstr ""
+msgstr "Instrumentasi"
 
 #: src/settings_translation_file.cpp
 msgid "Interval of saving important changes in the world, stated in seconds."
@@ -4069,7 +4086,7 @@ msgstr "Tombol tembus node"
 
 #: src/settings_translation_file.cpp
 msgid "Node highlighting"
-msgstr ""
+msgstr "Penyorotan node"
 
 #: src/settings_translation_file.cpp
 msgid "NodeTimer interval"
@@ -4343,6 +4360,11 @@ msgid ""
 "pixels when scaling down, at the cost of blurring some\n"
 "edge pixels when images are scaled by non-integer sizes."
 msgstr ""
+"Skala GUI dengan nilai yang ditentukan pengguna.\n"
+"Gunakan penyaring nearest-neighbor-anti-alias untuk menskalakan GUI.\n"
+"Ini akan menghaluskan beberapa tepi yang kasar, dan mencampur\n"
+"piksel saat menurunkan skala, dengan biaya mengaburkan beberapa\n"
+"piksel tepi saat citra diskalakan dengan ukuran bukan bilangan bulat."
 
 #: src/settings_translation_file.cpp
 msgid "Screen height"
@@ -4577,6 +4599,10 @@ msgid ""
 "(obviously, remote_media should end with a slash).\n"
 "Files that are not present will be fetched the usual way."
 msgstr ""
+"Menentukan URL tempat klien mengambil media alih-alih menggunakan UDP.\n"
+"$filename harus dapat diakses dari $remote_media$filename melalui cURL\n"
+"(jelas, remote_media harus diakhiri dengan garis miring).\n"
+"Berkas yang tidak ada akan diambil dengan cara biasa."
 
 #: src/settings_translation_file.cpp
 msgid "Static spawnpoint"
@@ -4851,6 +4877,11 @@ msgid ""
 "It should give significant performance boost at the cost of less detailed "
 "image."
 msgstr ""
+"Undersampling mirip dengan menggunakan resolusi layar yang lebih rendah, "
+"tetapi hanya berlaku\n"
+"untuk dunia permainan saja, GUI tetap utuh.\n"
+"Ini seharusnya memberi peningkatan performa yang signifikan dengan biaya "
+"citra yang kurang detail."
 
 #: src/settings_translation_file.cpp
 msgid "Unlimited player transfer distance"
@@ -5069,6 +5100,11 @@ msgid ""
 "to the old scaling method, for video drivers that don't\n"
 "properly support downloading textures back from hardware."
 msgstr ""
+"Ketika gui_scaling_filter_txr2img bernilai true, salin citra tersebut\n"
+"dari perangkat keras ke perangkat lunak untuk penskalaan. Jika false, "
+"kembali\n"
+"ke metode penskalaan lama, untuk driver video yang tidak\n"
+"mendukung pengunduhan tekstur kembali dari perangkat keras dengan benar."
 
 #: src/settings_translation_file.cpp
 msgid ""
@@ -5080,6 +5116,16 @@ msgid ""
 "have a visible effect unless bilinear/trilinear/anisotropic filtering is\n"
 "enabled."
 msgstr ""
+"Saat menggunakan penyaring bilinear/trilinear/anisotropic, tekstur resolusi "
+"rendah\n"
+"dapat menjadi kabur, sehingga otomatis perbesar skala dengan interpolasi\n"
+"nearest-neighbor untuk menjaga piksel tetap tajam. Ini mengatur ukuran "
+"tekstur minimum\n"
+"untuk tekstur yang diperbesar skalanya; nilai lebih tinggi terlihat lebih "
+"tajam, tetapi membutuhkan lebih banyak\n"
+"memori. Perpangkatan 2 disarankan. Mengatur ini lebih dari 1 mungkin tidak\n"
+"berpengaruh secara visual kecuali penyaringan bilinear/trilinear/anisotropic\n"
+"diaktifkan."
 
 #: src/settings_translation_file.cpp
 msgid ""
@@ -5201,7 +5247,7 @@ msgstr "Ketinggian Y dimana bayangan floatland diperpanjang."
 
 #: src/settings_translation_file.cpp
 msgid "block send optimize distance"
-msgstr ""
+msgstr "jarak optimasi pengiriman blok"
 
 #: src/settings_translation_file.cpp
 msgid "cURL file download timeout"
