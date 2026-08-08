@@ -25,6 +25,8 @@ android {
         applicationId "com.altomedia.multicraft"
         minSdkVersion 21
         targetSdkVersion 27
+        versionCode 1
+        versionName "1.1.11.2"
     }
 	Properties props = new Properties()
 	props.load(new FileInputStream(file("local.properties")))

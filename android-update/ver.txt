@@ -1,0 +1,6 @@
+{
+	"version_code": 1,
+	"package": "com.altomedia.multicraft",
+	"content_en": "<big><big><b>A new version of MultiCraft is available!</b></big><ul><li>Update for the latest features, improvements and bug fixes.</li></ul><center><b>Please install the updated version!</b></center></big>",
+	"content_ru": "<big><big><b>Доступна новая версия MultiCraft!</b></big><ul><li>Обновите, чтобы получить последние функции, улучшения и исправления.</li></ul><center><b>Пожалуйста, установите обновлённую версию!</b></center></big>"
+}

@@ -61,7 +61,7 @@ public class MainActivity extends Activity implements WVersionManager.ActivityLi
     private final static int COARSE_LOCATION_RESULT = 100;
     private final static int WRITE_EXTERNAL_RESULT = 101;
     private final static int ALL_PERMISSIONS_RESULT = 102;
-    private static final String UPDATE_LINK = "https://raw.githubusercontent.com/MoNTE48/MultiCraft-links/master/ver.txt";
+    private static final String UPDATE_LINK = "https://raw.githubusercontent.com/kdsmedia/MultiCraft/main/android-update/ver.txt";
     private static final String[] EU_COUNTRIES = new String[]{
             "AT", "BE", "BG", "HR", "CY", "CZ",
             "DK", "EE", "FI", "FR", "DE", "GR",
