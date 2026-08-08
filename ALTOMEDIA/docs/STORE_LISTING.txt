@@ -1,6 +1,6 @@
 ================================================================================
   STORE LISTING — MULTICRAFT (Google Play Store)
-  Build: v1.1.11.2 (versionCode 2) | 08 Agustus 2026
+  Build: v1.1.11.3 (versionCode 3) | 08 Agustus 2026
 ================================================================================
 Isi field-field di Play Console > Store presence > Main store listing dan
 App content. Salin teks di bawah ke field yang sesuai.
@@ -164,13 +164,15 @@ App icon          : ALTOMEDIA/graphics/icon_512x512.png
 Feature graphic   : ALTOMEDIA/graphics/feature_graphic_1024x500.png
                       (1024×500 px PNG, recommended)
 Phone screenshots : Minimal 2, maksimal 8. Resolusi 320–3840px, rasio 16:9 atau 9:16.
-                    CATATAN: Screenshot tidak disediakan di paket ini.
-                    Ambil sendiri dari device/ emulator saat main game:
-                      1. Screenshot menu utama
-                      2. Screenshot sedang membangun
-                      3. Screenshot mode creative (terbang)
-                      4. Screenshot mode survival (malam/monster)
-                    Atau sementara pakai ALTOMEDIA/graphics/promo_banner_1024x500.png.
+                    5 screenshot SUDAH disediakan di paket ini (portrait 1080×1920):
+                      ALTOMEDIA/graphics/screenshots/screenshot_01_title.png     (Title/Hero)
+                      ALTOMEDIA/graphics/screenshots/screenshot_02_creative.png  (Creative mode)
+                      ALTOMEDIA/graphics/screenshots/screenshot_03_survival.png  (Survival/mining)
+                      ALTOMEDIA/graphics/screenshots/screenshot_04_explore.png    (Biomes)
+                      ALTOMEDIA/graphics/screenshots/screenshot_05_features.png   (Features)
+                    Upload kelima file di Play Console > Main store listing >
+                    Phone screenshots. Rekomendasi: ambil juga screenshot asli
+                    dari gameplay di device untuk variasi autentik.
 
 --------------------------------------------------------------------------------
 5. TAGS (kategori & label)
@@ -243,6 +245,9 @@ Jawab kuesioner IARC sebagai berikut:
   App contains ads           : No  (App TIDAK menampilkan iklan)
   Privacy Policy URL         : https://raw.githubusercontent.com/kdsmedia/MultiCraft/main/ALTOMEDIA/docs/PRIVACY_POLICY.txt
                                 (atau URL domain sendiri, lihat UPLOAD_GUIDE LANGKAH 4)
+  Terms of Service URL       : https://raw.githubusercontent.com/kdsmedia/MultiCraft/main/ALTOMEDIA/docs/TERMS_OF_SERVICE.txt
+                                (opsional tapi disarankan; isi di App content >
+                                Terms of Service / policy URL bila tersedia)
 
 --------------------------------------------------------------------------------
 10. APP ACCESS (APPROVAL)
@@ -251,5 +256,5 @@ Jawab kuesioner IARC sebagai berikut:
   (Tidak ada login/premium/akses terbatas — user langsung main)
 
 ================================================================================
-  AKHIR STORE LISTING — MultiCraft v1.1.11.2 — 08 Agustus 2026
+  AKHIR STORE LISTING — MultiCraft v1.1.11.3 — 08 Agustus 2026
 ================================================================================

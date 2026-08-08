@@ -83,3 +83,45 @@ libintl-lite.
 ## Catatan
 - Repo ini adalah clone shallow; untuk operasi yang butuh full history,
   jalankan `git fetch --unshallow`.
+
+## arm64-v8a (64-bit) build — v1.1.11.3 (versionCode 3)
+Google Play mewajibkan native lib 64-bit (armeabi-v7a saja → ditolak).
+Makefile (build/android/Makefile) di-patch untuk build arm64-v8a:
+- Line ~42: `TARGET_ABI = arm64-v8a`, `TARGET_HOST = aarch64-linux`,
+  `TARGET_TOOLCHAIN = aarch64-linux-android` (armv7 diberi comment).
+- `-fno-lto` ditambahkan ke TARGET_CFLAGS/LDFLAGS_ADDON (GCC 4.9 arm64 butuh).
+- LuaJIT: `HOST_CC="gcc"` (bukan "gcc -m32") + `TARGET_SYS=Linux` (host 64-bit
+  untuk buildvm; -m32 gagal tanpa gcc-multilib 32-bit).
+
+### NDK r16b sandbox fix (exec permission)
+- /tmp/android-ndk-r16b/build/tools/make-standalone-toolchain.sh di-patch:
+  setelah install, `find "$INSTALL_DIR" -type f \( ... \) -exec chmod +x {} +`
+  + `chmod -R +x` pada bin/libexec/aarch64-linux-android/bin (sandbox
+  menghapus exec bit). Tanpa ini, gcc/cc1/as → permission denied.
+
+### Compat libs untuk clang NDK r16b (Debian 13)
+- Symlink di /tmp/compatlibs (libncurses.so.5, libncursesw.so.5,
+  libtinfo.so.5 → .so.6). Set `LD_LIBRARY_PATH=/tmp/compatlibs` saat build.
+- cmake 3.31.6 di /tmp/cmake-3.31.6-linux-x86_64/bin (untuk openal-soft).
+
+### Build urutan deps arm64 (semua elf64-littleaarch64)
+leveldb → freetype → curl (distclean dulu; .o armeabi lama bikin "File in
+wrong format") → openal-soft → libvorbis-android → luajit → irrlicht (via
+ndk-build Irrlicht.mk) → libmulticraft.so (ndk-build APP_PLATFORM=android-21
+TARGET_ABI=arm64-v8a). Backup libmulticraft.so armeabi-v7a dulu sebelum
+ndk-build (rm -rf obj/local menghapusnya).
+
+### build.gradle v1.1.11.3
+- versionCode 3, versionName 1.1.11.3
+- `ndk { abiFilters 'armeabi-v8a', 'arm64-v8a' }` — ship 32+64 bit
+- splits abi enable:false, include keduanya (universal AAB)
+- play-services-games:23.2.0 (v2 SDK — bukan v1; hapus meta-data
+  `com.google.android.gms.games.unityGame` dari manifest, itu untuk Unity).
+- AAB berisi base/lib/{armeabi-v7a,arm64-v8a}/libmulticraft.so → lolos 64-bit.
+
+### ALTOMEDIA release package
+- aab/ + apk/ vc3 (vc2 dihapus), docs/TERMS_OF_SERVICE.txt (baru),
+  graphics/screenshots/ (5 PNG 1080x1920; .gitignore di-exception:
+  `!ALTOMEDIA/graphics/screenshots/screenshot_*.png`).
+- Keystore + local.properties (password Kdsmedia@123) tetap di repo sesuai
+  rule user "keystore must NOT be deleted".

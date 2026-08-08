@@ -38,11 +38,16 @@ android {
         applicationId "com.altomedia.multicraft"
         minSdkVersion 21
         targetSdkVersion 35
-        versionCode 2
-        versionName "1.1.11.2"
+        versionCode 3
+        versionName "1.1.11.3"
         // Play services adds enough methods to exceed the 65k DEX limit.
         // minSdk 21 uses native multidex (no extra dependency needed).
         multiDexEnabled true
+        ndk {
+            // Ship both 32-bit (armeabi-v7a) and 64-bit (arm64-v8a) native
+            // libraries. 64-bit is required by Google Play (August 2019 policy).
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
     }
 
     // Compile Java against JDK 17 language level (JDK 21 runs the build).
@@ -69,21 +74,22 @@ android {
 			}
 		}
 	}
-// for multiple APKs
-    // Single universal build (armeabi-v7a native lib). Disabling per-ABI
-    // splits produces one APK/AAB that runs on armeabi-v7a devices and on
-    // arm64 devices via 32-bit compatibility, and is required for AAB.
+// for the App Bundle
+    // Build a single universal AAB that includes both armeabi-v7a (32-bit)
+    // and arm64-v8a (64-bit) native libraries. The Play Store then delivers
+    // only the ABI each device needs (keeps install size small) while
+    // satisfying the 64-bit requirement. Per-ABI splits are disabled.
     splits {
         abi {
             enable false
             reset()
-            include "armeabi-v7a"
+            include "armeabi-v7a", "arm64-v8a"
         }
     }
 }
 
-// build multiple APKs for all ABI
-ext.abiCodes = ['armeabi-v7a': 1, x86: 2]
+// per-ABI versionCode offset (kept for backward compatibility with split APKs)
+ext.abiCodes = ['armeabi-v7a': 1, 'arm64-v8a': 2, x86: 3]
 import com.android.build.OutputFile
 
 android.applicationVariants.all { variant ->

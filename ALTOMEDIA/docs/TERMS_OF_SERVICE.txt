@@ -1,0 +1,171 @@
+================================================================================
+  TERMS OF SERVICE — MULTICRAFT
+  Effective date: 07 August 2026 | Version 1.0
+  App: MultiCraft (com.altomedia.multicraft)
+  Developer: Altomedia Indonesia
+================================================================================
+
+These Terms of Service ("Terms") govern your use of the MultiCraft mobile
+application ("MultiCraft", "the App", "we", "us") developed by Altomedia
+Indonesia. By downloading, installing, or using MultiCraft, you agree to be
+bound by these Terms. If you do not agree, do not install or use the App.
+
+--------------------------------------------------------------------------------
+1. THE APP
+--------------------------------------------------------------------------------
+MultiCraft is an open-world sandbox voxel game that lets you build, mine,
+explore, and survive in procedurally generated worlds. The App is provided for
+personal, non-commercial entertainment purposes. The App does not require an
+account or login to play single-player content.
+
+--------------------------------------------------------------------------------
+2. LICENSE TO USE
+--------------------------------------------------------------------------------
+Subject to your compliance with these Terms, Altomedia Indonesia grants you a
+limited, non-exclusive, non-transferable, revocable license to install and use
+MultiCraft on a mobile device that you own or control, solely for your personal
+use. You may not:
+  - Reverse engineer, decompile, disassemble, or otherwise attempt to derive
+    the source code of the App's native libraries, except to the extent that
+    such activity is expressly permitted by applicable law.
+  - Modify, adapt, translate, or create derivative works of the App.
+  - Redistribute, sell, rent, lease, sublicense, or otherwise commercialize the
+    App without prior written consent.
+  - Use the App for any unlawful purpose or in violation of these Terms.
+
+MultiCraft is based on an open-source engine. The source code is available at
+https://github.com/kdsmedia/MultiCraft under its applicable license. These
+Terms apply to the compiled App distributed via Google Play; they do not
+override the rights granted by the underlying open-source license.
+
+--------------------------------------------------------------------------------
+3. USER-GENERATED CONTENT
+--------------------------------------------------------------------------------
+MultiCraft allows you to create in-game builds, worlds, and (where multiplayer
+servers are available) chat messages ("User Content"). You retain ownership of
+your User Content. By creating User Content, you grant Altomedia Indonesia a
+non-exclusive, worldwide, royalty-free license to host, store, and transmit
+your User Content solely as needed to operate the App's features.
+
+You are solely responsible for your User Content. You must not create or share
+content that:
+  - Is unlawful, harmful, harassing, defamatory, hateful, or obscene.
+  - Infringes the intellectual property or privacy rights of others.
+  - Contains malware, spam, or malicious code.
+  - Impersonates another person or entity.
+
+We may remove or disable access to User Content that violates these Terms.
+
+--------------------------------------------------------------------------------
+4. MULTIPLAYER AND THIRD-PARTY SERVERS
+--------------------------------------------------------------------------------
+MultiCraft may connect to multiplayer servers operated by third parties or
+community members. Altomedia Indonesia does not own, control, or monitor these
+servers. Your interaction with third-party servers is solely between you and
+the server operator. We are not responsible for the content, availability, or
+conduct on third-party servers, and their separate terms and privacy policies
+may apply.
+
+--------------------------------------------------------------------------------
+5. IN-APP PURCHASES AND ADS
+--------------------------------------------------------------------------------
+MultiCraft does not contain in-app purchases or paid features. The App does not
+display third-party advertisements. All gameplay content is available without
+payment.
+
+--------------------------------------------------------------------------------
+6. AGE REQUIREMENTS
+--------------------------------------------------------------------------------
+You must be at least 13 years old (or the minimum age required in your country
+to use Google Play) to use MultiCraft. If you are under 18, you should use the
+App with the involvement of a parent or legal guardian. The App is rated
+accordingly by the relevant content rating authorities (IARC).
+
+--------------------------------------------------------------------------------
+7. PRIVACY
+--------------------------------------------------------------------------------
+Your use of MultiCraft is also governed by our Privacy Policy, available at:
+https://raw.githubusercontent.com/kdsmedia/MultiCraft/main/ALTOMEDIA/docs/PRIVACY_POLICY.txt
+MultiCraft does not require login and stores game data locally on your device.
+The Privacy Policy describes what limited data is processed (e.g., Google Play
+Services / Firebase) and how it is handled.
+
+--------------------------------------------------------------------------------
+8. ACCEPTABLE USE
+--------------------------------------------------------------------------------
+You agree not to:
+  - Use the App to harm, disrupt, or overload any server, network, or service.
+  - Attempt to gain unauthorized access to any part of the App, servers, or
+    systems.
+  - Use automated scripts, bots, or exploits to manipulate gameplay or
+    multiplayer servers.
+  - Interfere with the proper functioning of the App or other users'
+    experience.
+
+--------------------------------------------------------------------------------
+9. DISCLAIMERS
+--------------------------------------------------------------------------------
+THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND,
+EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO
+NOT WARRANT THAT THE APP WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR THAT
+DEFECTS WILL BE CORRECTED. YOU USE THE APP AT YOUR OWN RISK.
+
+--------------------------------------------------------------------------------
+10. LIMITATION OF LIABILITY
+--------------------------------------------------------------------------------
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL ALTOMEDIA
+INDONESIA, ITS DEVELOPERS, OR AFFILIATES BE LIABLE FOR ANY INDIRECT,
+INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF DATA,
+WORLDS, OR PROGRESS, ARISING OUT OF OR RELATED TO YOUR USE OF OR INABILITY TO
+USE THE APP, WHETHER BASED ON WARRANTY, CONTRACT, TORT (INCLUDING NEGLIGENCE),
+OR OTHERWISE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+Because game data is stored locally on your device, you are responsible for
+backing up your worlds. We are not liable for loss of local data due to device
+failure, uninstall, or App updates.
+
+--------------------------------------------------------------------------------
+11. UPDATES AND CHANGES
+--------------------------------------------------------------------------------
+We may update, modify, or discontinue the App, or release new versions, at any
+time without prior notice. App updates may be installed automatically depending
+on your Google Play settings. We may revise these Terms from time to time; the
+"Effective date" above reflects the most recent version. Continued use of the
+App after changes constitutes acceptance of the updated Terms.
+
+--------------------------------------------------------------------------------
+12. TERMINATION
+--------------------------------------------------------------------------------
+We may suspend or terminate your access to the App if you violate these Terms
+or for any other reason at our discretion. Upon termination, the license in
+Section 2 ends, but these Terms remain in effect for matters arising before
+termination. Local game data remains on your device until you uninstall the App.
+
+--------------------------------------------------------------------------------
+13. INTELLECTUAL PROPERTY
+--------------------------------------------------------------------------------
+The MultiCraft name, logo, and compiled App are owned or licensed by Altomedia
+Indonesia, subject to the rights of the underlying open-source contributors.
+All other trademarks and service marks are the property of their respective
+owners.
+
+--------------------------------------------------------------------------------
+14. GOVERNING LAW
+--------------------------------------------------------------------------------
+These Terms are governed by the laws of the Republic of Indonesia, without
+regard to its conflict of laws principles. Any disputes shall be resolved in
+the competent courts of Jakarta, Indonesia, except where local consumer
+protection law requires otherwise.
+
+--------------------------------------------------------------------------------
+15. CONTACT
+--------------------------------------------------------------------------------
+For questions about these Terms, contact:
+  Developer : Altomedia Indonesia
+  Email     : altomedia.indonesia@gmail.com
+  Website   : https://github.com/kdsmedia/MultiCraft
+
+================================================================================
+  END OF TERMS OF SERVICE — MultiCraft v1.0 — 07 August 2026
+================================================================================

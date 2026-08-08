@@ -26,13 +26,25 @@ VERSION_PATCH := $(shell cat $(PROJ_ROOT)/CMakeLists.txt | \
 # toolchain config for ARMv7
 ################################################################################
 
-TARGET_HOST = arm-linux
-TARGET_ABI = armeabi-v7a
-TARGET_TOOLCHAIN = arm-linux-androideabi
-TARGET_CFLAGS_ADDON = -mfpu=vfpv3-d16 -march=armv7-a -Ofast -fdata-sections -ffunction-sections -fvisibility=hidden -flto -D__ANDROID_API__=$(API)
+# TARGET_HOST = arm-linux
+# TARGET_ABI = armeabi-v7a
+# TARGET_TOOLCHAIN = arm-linux-androideabi
+# TARGET_CFLAGS_ADDON = -mfpu=vfpv3-d16 -march=armv7-a -Ofast -fdata-sections -ffunction-sections -fvisibility=hidden -flto -D__ANDROID_API__=$(API)
+# TARGET_CXXFLAGS_ADDON = $(TARGET_CFLAGS_ADDON)
+# TARGET_LDFLAGS_ADDON = -Wl,--no-warn-mismatch,--gc-sections,--icf=safe
+# CROSS_PREFIX = arm-linux-androideabi
+
+################################################################################
+# toolchain config for ARMv8 (arm64-v8a) — required for Play Store 64-bit
+################################################################################
+
+TARGET_HOST = aarch64-linux
+TARGET_ABI = arm64-v8a
+TARGET_TOOLCHAIN = aarch64-linux-android
+TARGET_CFLAGS_ADDON = -Ofast -fdata-sections -ffunction-sections -fvisibility=hidden -fno-lto -D__ANDROID_API__=$(API)
 TARGET_CXXFLAGS_ADDON = $(TARGET_CFLAGS_ADDON)
-TARGET_LDFLAGS_ADDON = -Wl,--no-warn-mismatch,--gc-sections,--icf=safe
-CROSS_PREFIX = arm-linux-androideabi
+TARGET_LDFLAGS_ADDON = -Wl,--gc-sections
+CROSS_PREFIX = aarch64-linux-android
 
 ################################################################################
 # toolchain config for x86
@@ -589,7 +601,7 @@ $(LUAJIT_LIB): $(LUAJIT_TIMESTAMP)
 	export TARGET_FLAGS="${TARGET_CFLAGS_ADDON} -fno-lto";                     \
 	export TARGET_LDFLAGS="${TARGET_LDFLAGS_ADDON}";                           \
 	$(MAKE) CROSS=${CROSS_PREFIX}- TARGET_CC=${CROSS_PREFIX}-clang             \
-	XCFLAGS="-DLUAJIT_DISABLE_FFI" HOST_CC="gcc -m32" BUILDMODE=static;        \
+	TARGET_SYS=Linux XCFLAGS="-DLUAJIT_DISABLE_FFI" HOST_CC="gcc" BUILDMODE=static;        \
 	touch ${LUAJIT_TIMESTAMP};                                                 \
 	touch ${LUAJIT_TIMESTAMP_INT};                                             \
 	$(RM) -rf $${TOOLCHAIN};                                                   \

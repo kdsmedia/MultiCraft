@@ -1,6 +1,6 @@
 # ALTOMEDIA — Paket Rilis MultiCraft (Build Terbaru)
 
-> **Build terbaru: v1.1.11.2 (versionCode 2) — 08 Agustus 2026**
+> **Build terbaru: v1.1.11.3 (versionCode 3) — 08 Agustus 2026**
 > Folder ini berisi seluruh paket rilis MultiCraft siap upload ke Google Play Console.
 
 Folder ini dibuat oleh OpenHands AI Agent untuk **Altomedia Indonesia (KDS Media)**
@@ -16,10 +16,10 @@ ALTOMEDIA/
 ├── BUILD_INFO.txt            ← ringkasan build terbaru + checksum
 │
 ├── apk/                      ← APK signed (untuk testing/sideload)
-│   └── MultiCraft-v1.1.11.2-vc2-20260808-release.apk
+│   └── MultiCraft-v1.1.11.3-vc3-20260808-release.apk
 │
 ├── aab/                      ← Android App Bundle (INI DIUPLOAD KE PLAY STORE)
-│   └── MultiCraft-v1.1.11.2-vc2-20260808-release.aab
+│   └── MultiCraft-v1.1.11.3-vc3-20260808-release.aab
 │
 ├── keystore/                 ← JKS keystore (upload key signing)
 │   └── multicraft-release.keystore
@@ -27,10 +27,12 @@ ALTOMEDIA/
 ├── graphics/                 ← gambar untuk Play Store listing
 │   ├── icon_512x512.png              (app icon, wajib)
 │   ├── feature_graphic_1024x500.png  (feature graphic)
-│   └── promo_banner_1024x500.png     (promo/banner)
+│   ├── promo_banner_1024x500.png     (promo/banner)
+│   └── screenshots/                  (5 screenshot portrait 1080×1920, wajib min 2)
 │
 └── docs/                     ← dokumen pendukung
     ├── PRIVACY_POLICY.txt    ← privacy policy lengkap (hosting ke URL)
+    ├── TERMS_OF_SERVICE.txt  ← Terms of Service (hosting ke URL publik)
     ├── UPLOAD_GUIDE.txt      ← panduan langkah upload ke Play Console
     ├── STORE_LISTING.txt     ← isi store listing (deskripsi, data safety, rating)
     ├── BLOG_ARTICLE.txt      ← artikel blog promosi (>2000 karakter)
@@ -54,13 +56,13 @@ Setiap build baru akan:
 
 | Field          | Nilai                          |
 |----------------|--------------------------------|
-| Versi          | 1.1.11.2                       |
-| Version Code   | 2                              |
+| Versi          | 1.1.11.3                       |
+| Version Code   | 3                              |
 | Tanggal build  | 08 Agustus 2026                |
 | minSdk         | 21 (Android 5.0)               |
 | targetSdk      | 35 (Android 15)                |
-| APK SHA-256    | f68814b27df72a97ee153c144e8e213742f7815b9784533f2325142556ef1db3 |
-| AAB SHA-256    | 3f17619edb813530d80fd4681fe5599ad66ddc833c9ea78d4d0483f2cc32138e |
+| APK SHA-256    | 92b84a0beb3653b14beb515c25c147377dc311cdd71cfad5f29f1571dfe3ea3f |
+| AAB SHA-256    | 68c95c2e27fb93d0b51d8d7fa7f8ad7aa06e8e3a59795760591fee1cae50c433 |
 | Signing SHA-1  | 68:94:CB:4D:B1:87:95:B6:16:26:0B:31:1F:BF:2F:CA:B7:FD:92:EF |
 
 ## Catatan Penting

@@ -38,11 +38,6 @@
         <meta-data
             android:name="com.google.android.gms.games.APP_ID"
             android:value="@string/app_id" />
-        <!-- Keep Play Games from auto-initializing the sign-in flow before the
-             app is ready; the app drives sign-in explicitly. -->
-        <meta-data
-            android:name="com.google.android.gms.games.unityGame"
-            android:value="false" />
 
         <activity
             android:name=".MainActivity"

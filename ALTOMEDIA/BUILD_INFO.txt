@@ -4,7 +4,7 @@
   Folder ini berisi PAKET RILIS TERBARU untuk MultiCraft Android.
   Gunakan file di folder ini untuk upload ke Google Play Console.
 
-  Tanda build terbaru : v1.1.11.2  (versionCode 2)
+  Tanda build terbaru : v1.1.11.3  (versionCode 3)
   Tanggal build       : 08 Agustus 2026
   Dibuat oleh         : OpenHands AI Agent untuk Altomedia Indonesia
 ===============================================================================
@@ -14,8 +14,8 @@ A. IDENTITAS APLIKASI
 -------------------------------------------------------------------------------
   Nama aplikasi     : MultiCraft
   Package ID        : com.altomedia.multicraft
-  Versi (versionName): 1.1.11.2
-  Version Code      : 2
+  Versi (versionName): 1.1.11.3
+  Version Code      : 3
   Firebase project  : altomedia-indonesia (project_number 739146490998)
 
 -------------------------------------------------------------------------------
@@ -35,14 +35,18 @@ B. PERSYARATAN PLAY CONSOLE (SUDAH DIPENUHI)
 -------------------------------------------------------------------------------
 C. FILE PAKET RILIS
 -------------------------------------------------------------------------------
-  apk/MultiCraft-v1.1.11.2-vc2-20260808-release.apk
-      → APK signed (9,4 MB) — untuk testing internal / sideload.
-        SHA-256 : f68814b27df72a97ee153c144e8e213742f7815b9784533f2325142556ef1db3
+  apk/MultiCraft-v1.1.11.3-vc3-20260808-release.apk
+      → APK signed (17 MB) — untuk testing internal / sideload.
+        Berisi native lib 32-bit (armeabi-v7a) + 64-bit (arm64-v8a).
+        SHA-256 : 92b84a0beb3653b14beb515c25c147377dc311cdd71cfad5f29f1571dfe3ea3f
 
-  aab/MultiCraft-v1.1.11.2-vc2-20260808-release.aab
-      → Android App Bundle signed (9,3 MB) — INI YANG DIUPLOAD KE PLAY CONSOLE.
-        Play Store akan generate APK per-device yang dioptimasi dari AAB ini.
-        SHA-256 : 3f17619edb813530d80fd4681fe5599ad66ddc833c9ea78d4d0483f2cc32138e
+  aab/MultiCraft-v1.1.11.3-vc3-20260808-release.aab
+      → Android App Bundle signed (17 MB) — INI YANG DIUPLOAD KE PLAY CONSOLE.
+        Play Store akan generate APK per-device yang dioptimasi dari AAB ini;
+        setiap perangkat hanya menerima ABI yang diperlukan (ukuran minimal).
+        Native ABI: armeabi-v7a (32-bit) + arm64-v8a (64-bit) — MEMENUHI
+        persyaratan 64-bit Google Play.
+        SHA-256 : 68c95c2e27fb93d0b51d8d7fa7f8ad7aa06e8e3a59795760591fee1cae50c433
 
   keystore/multicraft-release.keystore
       → JKS keystore untuk signing upload key.
@@ -68,31 +72,33 @@ D. GRAPHICS (untuk Play Store listing)
   graphics/promo_banner_1024x500.png
       → Promo banner.
 
+  graphics/screenshots/screenshot_0[1-5]_*.png
+      → 5 screenshot portrait 1080×1920 (Play Store wajib min. 2 screenshot).
+        01=Title/Hero, 02=Creative, 03=Survival, 04=Explore biomes, 05=Features.
+        Upload di Play Console > Main store listing > Screenshots (Phone).
+
 -------------------------------------------------------------------------------
 E. DOKUMEN (folder docs/)
 -------------------------------------------------------------------------------
   docs/PRIVACY_POLICY.txt     → Privacy policy lengkap (hosting di URL publik).
+  docs/TERMS_OF_SERVICE.txt   → Terms of Service (ToS) — URL publik untuk Play Console.
   docs/UPLOAD_GUIDE.txt       → Panduan langkah-demi-langkah upload ke Play Console.
-  docs/STORE_LISTING.txt      → Isi store listing (title, deskripsi, kategori, dll).
+  docs/STORE_LISTING.txt       → Isi store listing (title, deskripsi, kategori, dll).
   docs/BLOG_ARTICLE.txt       → Artikel blog promosi aplikasi (>2000 karakter).
   docs/KEYSTORE_INFO.txt      → Detail keystore & cara pakai untuk signing.
 
 -------------------------------------------------------------------------------
 F. CATATAN TEKNIS PENTING
 -------------------------------------------------------------------------------
-  1. ARSITEKTUR NATIVE (ABI)
-     Native lib (libmulticraft.so) saat ini hanya tersedia untuk armeabi-v7a
-     (32-bit ARM). APK/AAB ini JALAN di:
-       - Semua device armeabi-v7a (Android 5.0+)
-       - Device arm64-v8a (Android 8-13) via compat 32-bit
-     TIDAK jalan di device arm64-only yang drop support 32-bit
-     (Pixel 7+, sebagian Android 14/15 baru).
-
-     UNTUK COMPLIANCE 64-BIT PLAY STORE (app baru sejak 2019):
-     Perlu build libmulticraft.so untuk arm64-v8a juga.
-     Lihat docs/UPLOAD_GUIDE.txt bagian "Build arm64-v8a" untuk langkahnya.
-     Sampai arm64 ditambahkan, distribusi terbatas pada device yang
-     mendukung 32-bit ARM. Sebagian besar device Android 8-12 masih support.
+  1. ARSITEKTUR NATIVE (ABI) — 64-BIT SUPPORT (BARU DI v1.1.11.3)
+     Native lib (libmulticraft.so) sekarang dibangun untuk DUA ABI:
+       - armeabi-v7a  (32-bit ARM, 17 MB) — kompatibel Android 5.0+
+       - arm64-v8a    (64-bit ARM, 25 MB) — wajib untuk Google Play (2019 policy)
+     Kedua lib disertakan dalam AAB universal. Play Store men-deliver hanya
+     ABI yang diperlukan tiap perangkat (ukuran tetap kecil).
+     INI MEMENUHI PERSYARATAN 64-BIT GOOGLE PLAY yang sebelumnya ditolak.
+     Aplikasi kini jalan di SEMUA device Android 5.0+ termasuk arm64-only
+     (Pixel 7+, Android 14/15/16) yang sudah drop support 32-bit.
 
   2. PLAY APP SIGNING
      Google Play menggunakan "Play App Signing". Saat upload pertama, Anda
