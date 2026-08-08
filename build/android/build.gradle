@@ -5,6 +5,15 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
+        // google-services plugin: by default it pulls play-services 11.4.2,
+        // whose bundled support-v4 (25.x) clashes with support-compat:27.1.1
+        // ("Multiple dex files define Landroid/support/v4/content/res/TypedArrayUtils").
+        // Uncomment this line AND the apply-plugin line at the file bottom once
+        // you add an actual Firebase/Google-services SDK dependency
+        // (e.g. com.google.firebase:firebase-analytics). The plugin is needed
+        // to read build/android/google-services.json; kept off now because this
+        // app currently has no Firebase/Google dependency, only the json is here.
+        //classpath 'com.google.gms:google-services:3.3.0'
     }
 }
 
@@ -76,4 +85,12 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:support-compat:27.1.1'
 }
+
+// Apply the google-services plugin LAST so it can read
+// build/android/google-services.json and inject Firebase API keys / app id.
+// Commented out for now: the plugin pulls play-services 11.4.2 by default,
+// whose support-v4 clashes with support-compat:27.1.1 (duplicate
+// TypedArrayUtils). Enable it together with the buildscript classpath above
+// when you add a real Firebase/Google-services SDK dependency.
+//apply plugin: 'com.google.gms.google-services'
 

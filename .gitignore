@@ -114,3 +114,13 @@ build/iOS/Ads
 
 ## WindowsApp files
 build/WindowsApp/multicraft-windows.zip
+
+## Signing & credentials (NEVER commit)
+# Release keystore + signing config hold the private key that signs the app
+# and the Firebase google-services.json holds API keys. Keep them local only.
+keystore/
+*.keystore
+*.jks
+build/android/google-services.json
+build/android/app/google-services.json
+build/android/google-services-debug.json
