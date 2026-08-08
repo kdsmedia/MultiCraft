@@ -1,0 +1,284 @@
+================================================================================
+  PRIVACY POLICY — MULTICRAFT
+  Last updated: 8 August 2026
+  Effective date: 8 August 2026
+================================================================================
+
+This Privacy Policy describes how Altomedia Indonesia ("we", "us", "our", or
+"the Developer") collects, uses, discloses, and protects the information of
+users ("you" or "User") of the MultiCraft mobile application ("the App",
+"MultiCraft", or "the Service"), available for Android on the Google Play
+Store. The App is published under the package identifier
+com.altomedia.multicraft.
+
+By downloading, installing, accessing, or using the App, you acknowledge that
+you have read, understood, and agree to this Privacy Policy and the processing
+of your information as described herein. If you do not agree with this Privacy
+Policy, please do not download, install, or use the App.
+
+We are committed to protecting your privacy and to handling your personal
+information in a transparent, secure, and lawful manner in accordance with
+applicable data protection laws, including the General Data Protection
+Regulation (GDPR, Regulation (EU) 2016/679), the California Consumer Privacy
+Act (CCPA), the Children's Online Privacy Protection Act (COPPA), and the
+Indonesian Law No. 27 of 2022 on Personal Data Protection (UU PDP).
+
+--------------------------------------------------------------------------------
+1. INFORMATION WE COLLECT
+--------------------------------------------------------------------------------
+
+1.1 Information You Provide Directly
+    The App does NOT require you to create a user account, register, or log in
+    with a username and password. We deliberately designed the App so that no
+    personal account credentials are collected or stored on our servers.
+    You can play MultiCraft immediately after installation without providing
+    any personal information.
+
+1.2 Information Collected Automatically
+    When you install and use the App, the following categories of information
+    may be collected automatically through the App or through third-party SDKs
+    integrated into the App:
+
+    (a) Device and technical information: device model, manufacturer, operating
+        system version (Android version), screen resolution, device language,
+        timezone, and a device identifier used solely for the purposes
+        described in this policy.
+    (b) Usage and diagnostic information: crash reports, performance data,
+        log data, and app stability metrics that help us identify bugs and
+        improve the App.
+    (c) Google Play Games services data: when you choose to interact with
+        Google Play Games features (such as achievements, leaderboards, or
+        saved games), Google may process your gameplay data in accordance
+        with Google's own privacy policy. The App requests the
+        play-services-games and play-services-auth APIs to enable these
+        features.
+    (d) Google Play Services and Firebase data: the App integrates Google
+        Play Services and Firebase. These may collect device identifiers,
+        usage data, and analytics. The Firebase project is registered as
+        "altomedia-indonesia" (project number 739146490998).
+    (e) Update-check information: the App checks for updates by downloading
+        a small version file (ver.txt) from the GitHub repository
+        (raw.githubusercontent.com/kdsmedia/MultiCraft). This request is
+        unauthenticated and does not send personal data.
+
+1.3 Storage permissions and local files
+    The App stores game data (worlds, settings, downloaded assets, texture
+    packs, and mods) in the app-private external storage directory
+    (Context.getExternalFilesDir). This directory is sandboxed to the App and
+    is not accessible to other apps without explicit user action. The App does
+    NOT request broad storage permissions (READ/WRITE_EXTERNAL_STORAGE) on
+    Android 10+ because it uses scoped, app-specific storage. On uninstall,
+    this data is removed by the system.
+
+1.4 Permissions requested by the App
+    The App requests the following Android permissions:
+    - INTERNET — for downloading game assets and checking for updates.
+    - ACCESS_COARSE_LOCATION — optional, used by certain game mods if enabled.
+    - POST_NOTIFICATIONS (Android 13+) — to show unzip/asset extraction
+      progress notifications.
+    - FOREGROUND_SERVICE / FOREGROUND_SERVICE_DATA_SYNC — to run the asset
+      extraction (unzip) foreground service so long operations are not killed.
+    - INSTALL_SHORTCUT (launcher) — to optionally add a shortcut to the home
+      screen.
+    The App does NOT request access to contacts, SMS, call logs, camera,
+    microphone, precise location, body sensors, or other sensitive
+    permissions.
+
+--------------------------------------------------------------------------------
+2. HOW WE USE YOUR INFORMATION
+--------------------------------------------------------------------------------
+
+We use the collected information for the following purposes:
+    (a) To operate, maintain, and provide the App and its features;
+    (b) To check for and notify you of available updates;
+    (c) To download and extract game assets, texture packs, and mods that
+        you select;
+    (d) To enable Google Play Games features (achievements, leaderboards)
+        when you choose to use them;
+    (e) To monitor and improve app stability, diagnose crashes, and fix
+        technical issues;
+    (f) To analyze aggregate, anonymous usage trends to improve gameplay
+        and user experience;
+    (g) To comply with legal obligations and enforce our rights.
+
+We do NOT use your information to build a profile of you for advertising
+purposes by the Developer. The App itself does not display ads.
+
+--------------------------------------------------------------------------------
+3. LEGAL BASIS FOR PROCESSING (GDPR)
+--------------------------------------------------------------------------------
+
+For Users in the European Economic Area, United Kingdom, and Switzerland, the
+legal bases on which we process personal data are:
+    (a) Consent — where you have given clear, affirmative consent (e.g.,
+        interacting with Google Play Games);
+    (b) Legitimate interests — to operate, secure, and improve the App,
+        including crash reporting and update checks;
+    (c) Performance of a contract — to deliver the App functionality you
+        requested;
+    (d) Legal obligation — where required by law.
+
+You may withdraw consent at any time by disabling the relevant feature or
+uninstalling the App.
+
+--------------------------------------------------------------------------------
+4. THIRD-PARTY SERVICES
+--------------------------------------------------------------------------------
+
+The App integrates the following third-party services, each governed by its
+own privacy policy. We encourage you to review these policies:
+
+    (a) Google Play Services & Google Play Games
+        — https://policies.google.com/privacy
+        Processes gameplay data, achievements, leaderboards, device data.
+    (b) Firebase
+        — https://firebase.google.com/support/privacy
+        May collect analytics, crash data, and device identifiers.
+    (c) Google Play Store
+        — https://policies.google.com/privacy
+        Handles installation and distribution.
+    (d) GitHub (raw.githubusercontent.com)
+        — https://docs.github.com/en/site-policy/privacy-policies
+        Hosts the update-check version file (ver.txt). Only the file is
+        fetched; no personal data is transmitted.
+
+We are not responsible for the privacy practices of these third parties. Their
+data collection and use is subject to their respective policies.
+
+--------------------------------------------------------------------------------
+5. SHARING AND DISCLOSURE OF INFORMATION
+--------------------------------------------------------------------------------
+
+We do NOT sell, rent, or trade your personal information for monetary
+consideration. We may share information in the following limited
+circumstances:
+    (a) With service providers and processors who assist in operating the App
+        (e.g., Google Firebase) under appropriate data processing terms;
+    (b) When required by law, court order, or government regulation;
+    (c) To protect the rights, property, safety, or security of the Developer,
+        our users, or others;
+    (d) In connection with a merger, acquisition, or sale of all or part of
+        our business, provided the recipient honors this Privacy Policy;
+    (e) With your consent.
+
+--------------------------------------------------------------------------------
+6. DATA RETENTION
+--------------------------------------------------------------------------------
+
+We retain information only for as long as necessary to fulfill the purposes
+described in this policy or as required by law. Game data stored locally on
+your device remains until you uninstall the App or manually delete it.
+Aggregate analytics data is typically retained for a limited period and then
+deleted or anonymized.
+
+--------------------------------------------------------------------------------
+7. INTERNATIONAL DATA TRANSFERS
+--------------------------------------------------------------------------------
+
+Your information may be processed in countries other than your country of
+residence, including the United States (Google/Firebase/GitHub) and Indonesia.
+Where applicable, we ensure such transfers comply with applicable data
+protection laws, including through standard contractual clauses or other
+valid transfer mechanisms.
+
+--------------------------------------------------------------------------------
+8. DATA SECURITY
+--------------------------------------------------------------------------------
+
+We implement reasonable technical and organizational measures to protect your
+information against unauthorized access, alteration, disclosure, or
+destruction. However, no method of transmission over the Internet or method
+of electronic storage is 100% secure. We cannot guarantee absolute security.
+
+Game data stored in the app-private storage directory is sandboxed by the
+Android operating system and is not accessible to other apps.
+
+--------------------------------------------------------------------------------
+9. CHILDREN'S PRIVACY
+--------------------------------------------------------------------------------
+
+The App is a sandbox-style building and exploration game suitable for general
+audiences, including children. We do NOT knowingly collect personal
+information from children under the age of 13 (or the equivalent minimum age
+in the relevant jurisdiction) without verifiable parental consent.
+
+The App does not require registration. Google Play Games data is processed by
+Google under its own terms; parents may manage Google Play Games through the
+child's Google account settings.
+
+If you are a parent or guardian and believe your child has provided us with
+personal information in violation of this policy, please contact us so we can
+take appropriate action.
+
+--------------------------------------------------------------------------------
+10. YOUR RIGHTS
+--------------------------------------------------------------------------------
+
+Depending on your jurisdiction, you may have the following rights regarding
+your personal information:
+    (a) Right of access — to request a copy of the personal data we hold;
+    (b) Right to rectification — to correct inaccurate or incomplete data;
+    (c) Right to erasure ("right to be forgotten") — to request deletion;
+    (d) Right to restrict processing;
+    (e) Right to data portability;
+    (f) Right to object to processing;
+    (g) Right to withdraw consent at any time;
+    (h) Right to lodge a complaint with a supervisory authority.
+
+For Indonesian users, rights are exercised in accordance with UU PDP
+(Law No. 27/2022). For California residents, rights are exercised under CCPA.
+Because the App does not create user accounts, most rights are satisfied by
+uninstalling the App, which removes local data.
+
+To exercise any right, contact us using the details in Section 12.
+
+--------------------------------------------------------------------------------
+11. CALIFORNIA PRIVACY RIGHTS (CCPA)
+--------------------------------------------------------------------------------
+
+California residents have the right to know what personal information we
+collect, request deletion, and opt out of the "sale" or "sharing" of their
+personal information. We do not sell personal information as defined by the
+CCPA. To submit a request, contact us as described in Section 12.
+
+--------------------------------------------------------------------------------
+12. CONTACT US
+--------------------------------------------------------------------------------
+
+If you have any questions, concerns, or requests regarding this Privacy
+Policy or the App's data practices, please contact:
+
+    Developer : Altomedia Indonesia (KDS Media)
+    Email     : altomedia.indonesia@gmail.com
+    Address   : Jakarta, DKI Jakarta, Indonesia
+
+We will respond to your request within a reasonable timeframe, not to exceed
+30 days, in accordance with applicable law.
+
+--------------------------------------------------------------------------------
+13. CHANGES TO THIS PRIVACY POLICY
+--------------------------------------------------------------------------------
+
+We may update this Privacy Policy from time to time. When we do, we will
+revise the "Last updated" date at the top of this policy. We encourage you to
+review this policy periodically. Material changes will be reflected in an
+updated version. Continued use of the App after changes constitutes
+acceptance of the revised policy.
+
+--------------------------------------------------------------------------------
+14. HOSTING THIS POLICY
+--------------------------------------------------------------------------------
+
+For Google Play Console compliance, this Privacy Policy must be hosted at a
+publicly accessible URL. Recommended hosting options:
+    - Upload this file to the GitHub repository and use the raw URL:
+      https://raw.githubusercontent.com/kdsmedia/MultiCraft/main/ALTOMEDIA/docs/PRIVACY_POLICY.txt
+      (Note: Play Console requires a URL; raw GitHub works but a dedicated
+      web page is preferred.)
+    - Or host on a dedicated page at your domain, e.g.:
+      https://altomedia.id/multicraft/privacy-policy
+Enter the chosen URL in the Play Console > App content > Privacy Policy field.
+
+================================================================================
+  END OF PRIVACY POLICY — MultiCraft — 8 August 2026
+================================================================================

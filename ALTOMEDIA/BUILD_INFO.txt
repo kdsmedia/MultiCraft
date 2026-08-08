@@ -1,0 +1,111 @@
+===============================================================================
+  MULTICRAFT — PAKET RILIS TERBARU (BUILD INFO)
+===============================================================================
+  Folder ini berisi PAKET RILIS TERBARU untuk MultiCraft Android.
+  Gunakan file di folder ini untuk upload ke Google Play Console.
+
+  Tanda build terbaru : v1.1.11.2  (versionCode 2)
+  Tanggal build       : 08 Agustus 2026
+  Dibuat oleh         : OpenHands AI Agent untuk Altomedia Indonesia
+===============================================================================
+
+-------------------------------------------------------------------------------
+A. IDENTITAS APLIKASI
+-------------------------------------------------------------------------------
+  Nama aplikasi     : MultiCraft
+  Package ID        : com.altomedia.multicraft
+  Versi (versionName): 1.1.11.2
+  Version Code      : 2
+  Firebase project  : altomedia-indonesia (project_number 739146490998)
+
+-------------------------------------------------------------------------------
+B. PERSYARATAN PLAY CONSOLE (SUDAH DIPENUHI)
+-------------------------------------------------------------------------------
+  minSdkVersion     : 21   (Android 5.0 Lollipop)  ✓
+  targetSdkVersion  : 35   (Android 15)            ✓ — wajib untuk app baru/update 2025
+  compileSdkVersion : 35                            ✓
+  Build tools       : 35.0.0                        ✓
+  AGP / Gradle      : 8.7.3 / 8.9                   ✓
+  App Bundle (.aab) : tersedia (folder aab/)        ✓ — wajib untuk app baru
+  Signing (v1+v2+v3): SHA256withRSA, keystore JKS   ✓
+  Google Play Games : play-services-games 23.2.0    ✓
+  AndroidX          : full migration                ✓
+  MultiDex          : enabled (native, minSdk 21)   ✓
+
+-------------------------------------------------------------------------------
+C. FILE PAKET RILIS
+-------------------------------------------------------------------------------
+  apk/MultiCraft-v1.1.11.2-vc2-20260808-release.apk
+      → APK signed (9,4 MB) — untuk testing internal / sideload.
+        SHA-256 : f68814b27df72a97ee153c144e8e213742f7815b9784533f2325142556ef1db3
+
+  aab/MultiCraft-v1.1.11.2-vc2-20260808-release.aab
+      → Android App Bundle signed (9,3 MB) — INI YANG DIUPLOAD KE PLAY CONSOLE.
+        Play Store akan generate APK per-device yang dioptimasi dari AAB ini.
+        SHA-256 : 3f17619edb813530d80fd4681fe5599ad66ddc833c9ea78d4d0483f2cc32138e
+
+  keystore/multicraft-release.keystore
+      → JKS keystore untuk signing upload key.
+        Alias          : multicraft
+        Password store : Kdsmedia@123
+        Password key   : Kdsmedia@123
+        Owner (DN)     : CN=KDS Media, OU=Mobile, O=Altomedia Indonesia,
+                         L=Jakarta, ST=DKI Jakarta, C=ID
+        Valid from     : 08 Aug 2026 s/d 24 Dec 2053
+        Cert SHA-1     : 68:94:CB:4D:B1:87:95:B6:16:26:0B:31:1F:BF:2F:CA:B7:FD:92:EF
+        Cert SHA-256   : 37:6A:4B:4E:F8:82:C6:52:55:55:F1:F9:3D:78:EA:37:0F:11:39:9F:37:2E:38:16:11:85:61:E0:6A:DF:AD:34
+
+-------------------------------------------------------------------------------
+D. GRAPHICS (untuk Play Store listing)
+-------------------------------------------------------------------------------
+  graphics/icon_512x512.png
+      → Ikon aplikasi 512×512 px (wajib Play Store). Di-generate dari
+        ic_launcher_foreground asset app.
+
+  graphics/feature_graphic_1024x500.png
+      → Feature graphic 1024×500 px (recommended Play Store).
+
+  graphics/promo_banner_1024x500.png
+      → Promo banner.
+
+-------------------------------------------------------------------------------
+E. DOKUMEN (folder docs/)
+-------------------------------------------------------------------------------
+  docs/PRIVACY_POLICY.txt     → Privacy policy lengkap (hosting di URL publik).
+  docs/UPLOAD_GUIDE.txt       → Panduan langkah-demi-langkah upload ke Play Console.
+  docs/STORE_LISTING.txt      → Isi store listing (title, deskripsi, kategori, dll).
+  docs/BLOG_ARTICLE.txt       → Artikel blog promosi aplikasi (>2000 karakter).
+  docs/KEYSTORE_INFO.txt      → Detail keystore & cara pakai untuk signing.
+
+-------------------------------------------------------------------------------
+F. CATATAN TEKNIS PENTING
+-------------------------------------------------------------------------------
+  1. ARSITEKTUR NATIVE (ABI)
+     Native lib (libmulticraft.so) saat ini hanya tersedia untuk armeabi-v7a
+     (32-bit ARM). APK/AAB ini JALAN di:
+       - Semua device armeabi-v7a (Android 5.0+)
+       - Device arm64-v8a (Android 8-13) via compat 32-bit
+     TIDAK jalan di device arm64-only yang drop support 32-bit
+     (Pixel 7+, sebagian Android 14/15 baru).
+
+     UNTUK COMPLIANCE 64-BIT PLAY STORE (app baru sejak 2019):
+     Perlu build libmulticraft.so untuk arm64-v8a juga.
+     Lihat docs/UPLOAD_GUIDE.txt bagian "Build arm64-v8a" untuk langkahnya.
+     Sampai arm64 ditambahkan, distribusi terbatas pada device yang
+     mendukung 32-bit ARM. Sebagian besar device Android 8-12 masih support.
+
+  2. PLAY APP SIGNING
+     Google Play menggunakan "Play App Signing". Saat upload pertama, Anda
+     akan diminta mendaftarkan "upload key" (keystore di folder keystore/)
+     atau mengikuti enrollment. Upload key dipakai untuk men-sign AAB yang
+     di-upload; Google men-sign APK final untuk user dengan "app signing key".
+     JAGA KEAMANAN KEYSTORE — jangan share password.
+
+  3. LOGIN
+     Tidak ada sistem login user. Aplikasi hanya menggunakan Google Play Games
+     services (achievement/leaderboard via play-services-games). Tidak ada
+     akun/password user yang disimpan.
+
+===============================================================================
+  Akhir BUILD_INFO — generated 08 Aug 2026
+===============================================================================

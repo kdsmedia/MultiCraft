@@ -1,0 +1,106 @@
+================================================================================
+  ARTIKEL BLOG PROMOSI — MULTICRAFT
+  Topik : MultiCraft, Game Sandbox Kreatif Buatan Indonesia untuk Android
+  Panjang: ~3.200 karakter
+  Tanggal: 8 Agustus 2026
+  Status: Siap dipublikasikan di blog/medium/situs Altomedia
+================================================================================
+
+JUDUL:
+MultiCraft: Game Sandbox Kreatif Buatan Indonesia yang Bawa Dunia Tak Terbatas
+ke Android Anda
+
+=====================================================
+
+Pernahkah Anda membayangkan membangun kota impian, menggali tambang rahasia di
+kedalaman bumi, atau bertahan hidup di dunia penuh monster hanya dari ponsel
+Android Anda? MultiCraft hadir untuk mewujudkan semua itu. Sebuah game sandbox
+berkonstruksi dunia terbuka yang dikembangkan khusus untuk pemain Indonesia,
+MultiCraft menggabungkan kebebasan berkreasi tanpa batas dengan kemudahan akses
+di perangkat mobile.
+
+MultiCraft adalah game bergenre voxel sandbox — di mana seluruh dunia terdiri
+dari blok-blok yang bisa Anda tambah, hapus, dan susun sesuai imajinasi.
+Terinspirasi dari genre game membangun dunia yang digemari jutaan pemain di
+seluruh dunia, MultiCraft menghadirkan pengalaman serupa namun dengan sentuhan
+lokal: antarmuka 100% dalam Bahasa Indonesia, ringan untuk berbagai perangkat,
+dan dukungan Google Play Games untuk achievement serta leaderboard.
+
+Dua Mode Bermain untuk Setua Jenis Pemain
+
+MultiCraft menyediakan dua mode utama yang menjangkau berbagai jenis pemain.
+Mode Kreatif (Creative) memberikan sumber daya tak terbatas — Anda bebas
+membangun apa pun, dari rumah kayu sederhana, kastil batu megah, taman, jembatan,
+hingga kota futuristik lengkap dengan jalan dan bangunan. Di mode ini, Anda juga
+bisa terbang untuk melihat dunia dari ketinggian, sehingga karya arsitektur Anda
+terlihat spektakuler dari atas.
+
+Sementara itu, mode Bertahan (Survival) menguji keberanian dan strategi. Anda
+memulai dari nol — menebang pohon untuk kayu, membuat alat pertama, mengumpulkan
+makanan, lalu membangun tempat berlindung sebelum malam tiba. Karena ketika
+gelap, monster mulai berkeliaran. Mode ini menambahkan unsur petualangan dan
+tantangan yang membuat setiap sesi bermain terasa segar dan penuh adrenalin.
+
+Dunia Tak Terbatas dan Penuh Kejutan
+
+Setiap dunia di MultiCraft dibuat secara prosedural, artinya tidak ada dua dunia
+yang persis sama. Anda bisa menjelajahi bioma yang berbeda — dari hutan lebat,
+padang rumput, gurun pasir, hingga pegunungan bersalju. Di bawah tanah, gua-gua
+menyimpan mineral berharga yang bisa Anda tambang untuk membuat alat dan senjata
+yang lebih kuat. Kombinasi eksplorasi permukaan dan pertambangan bawah tanah
+menciptakan loop gameplay yang adiktif: gali lebih dalam, temukan lebih banyak,
+bangun lebih megah.
+
+Ternak Hewan, Hadapi Monster, dan Eksplorasi Multiplayer
+
+Dunia MultiCraft hidup. Anda bisa beternak hewan untuk sumber makanan dan
+material, berburu satwa liar, atau menghadapi musuh berbahaya di gua gelap. Bagi
+yang suka bermain bersama, MultiCraft mendukung multiplayer melalui server
+komunitas — ajak teman membangun proyek kolaboratif, berbagi karya, atau
+bertanding di leaderboard Google Play Games.
+
+Modding dan Personalisasi Tanpa Batas
+
+Salah satu kekuatan MultiCraft adalah dukungan modding berbasis Lua dan texture
+pack. Pemain bisa mengubah tampilan visual game, menambahkan blok dan item baru,
+atau bahkan membuat mekanik gameplay sendiri. Komunitas modder terus berkontri-
+busi sehingga konten game selalu berkembang jauh setelah rilis awal.
+
+Dioptimasi untuk Android 8 sampai 16
+
+Versi terbaru MultiCraft (v1.1.11.2) telah dioptimasi penuh untuk Android 8
+hingga Android 16. Tim pengembang memperbaiki masalah force close yang sering
+muncul di Android 10+, meng-upgrade target SDK ke 35 (Android 15), serta
+melakukan migrasi ke AndroidX dan Google Play Services terbaru. Hasilnya: game
+lebih stabil, hemat baterai, dan kompatibel dengan generasi ponsel terbaru.
+
+Tanpa Login, Langsung Main
+
+MultiCraft sengaja dirancang tanpa sistem login akun. Cukup pasang, buka, dan
+langsung bermain. Tidak ada registrasi, tidak ada password yang harus diingat,
+tidak ada data pribadi yang dikumpulkan secara berlebihan. Privasi pemain
+diutamakan — data game disimpan secara lokal di perangkat dan hilang saat aplikasi
+dihapus. Layanan Google Play Games opsional tersedia bagi yang ingin mengoleksi
+achievement dan naik leaderboard.
+
+Kesimpulan
+
+MultiCraft bukan sekadar game membangun dunia biasa. Ia adalah ruang kreatif
+tanpa batas di genggaman Anda — tempat imajinasi diwujudkan, petualangan dijalani,
+dan karya dibagikan. Dengan dukungan Bahasa Indonesia, performa ringan, dan
+komitmen pada privasi pemain, MultiCraft adalah pilihan tepat bagi siapa pun yang
+mencari game sandbox kreatif di Android.
+
+Unduh MultiCraft sekarang di Google Play Store dan mulai bangun dunia impian
+Anda hari ini. Karena di MultiCraft, batasnya cuma imajinasi Anda.
+
+—
+Tentang Pengembang: MultiCraft dikembangkan oleh Altomedia Indonesia (KDS Media),
+studio pengembang aplikasi mobile di Jakarta yang berfokus pada game dan aplikasi
+hiburan berkualitas untuk pasar Indonesia.
+Kontak: altomedia.indonesia@gmail.com
+Website: https://github.com/kdsmedia/MultiCraft
+
+================================================================================
+  AKHIR ARTIKEL BLOG — MultiCraft v1.1.11.2 — 08 Agustus 2026
+================================================================================

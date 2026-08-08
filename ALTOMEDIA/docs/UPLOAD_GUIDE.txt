@@ -1,0 +1,235 @@
+================================================================================
+  PANDUAN UPLOAD RILIS & LISTING — MULTICRAFT KE GOOGLE PLAY CONSOLE
+  Build: v1.1.11.2 (versionCode 2) | 08 Agustus 2026
+================================================================================
+
+Panduan langkah-demi-langkah untuk memublikasikan MultiCraft di Google Play
+Store. Ikuti urutan ini. Estimasi waktu: 30–60 menit (belum termasuk review
+Google 1–3 hari).
+
+--------------------------------------------------------------------------------
+LANGKAH 0 — PERSIAPAN
+--------------------------------------------------------------------------------
+0.1 Pastikan Anda sudah punya akun Google Play Console
+    (https://play.google.com/console) yang sudah bayar biaya registrasi
+    sekali ($25 USD) dan terverifikasi.
+
+0.2 Siapkan file dari folder ALTOMEDIA/:
+    - aab/MultiCraft-v1.1.11.2-vc2-20260808-release.aab  ← INI DIUPLOAD
+    - keystore/multicraft-release.keystore               ← upload key
+    - graphics/icon_512x512.png
+    - graphics/feature_graphic_1024x500.png
+    - docs/PRIVACY_POLICY.txt  (hosting ke URL, lihat LANGKAH 4)
+    - docs/STORE_LISTING.txt   (isi copy listing)
+
+0.3 JAGA KEAMANAN KEYSTORE
+    Password keystore: Kdsmedia@123
+    JANGAN commit keystore ke repo publik SETELAH Anda download/backup aman
+    (saat ini keystore masih di repo karena belum didownload). Setelah
+    didownload, hapus keystore & local.properties dari tracking git:
+        git rm --cached keystore/multicraft-release.keystore
+        git rm --cached build/android/local.properties
+
+--------------------------------------------------------------------------------
+LANGKAH 1 — BUAT APLIKASI BARU DI PLAY CONSOLE
+--------------------------------------------------------------------------------
+1.1 Login ke https://play.google.com/console
+1.2 Klik "Create app" (Buat aplikasi).
+1.3 Isi:
+      - App name            : MultiCraft
+      - Default language    : Indonesian (id)  [atau English (en)]
+      - App or game?        : Game
+      - Free or paid?       : Free
+1.4 Centang "Declarations" (US export laws, dll) → Create app.
+
+--------------------------------------------------------------------------------
+LANGKAH 2 — SIAPKAN STORE LISTING (MAIN STORE LISTING)
+--------------------------------------------------------------------------------
+2.1 Menu kiri: Grow → Store presence → Main store listing.
+2.2 Isi sesuai docs/STORE_LISTING.txt:
+      - App name             : MultiCraft
+      - Short description   : (salin dari STORE_LISTING.txt, max 80 char)
+      - Full description    : (salin dari STORE_LISTING.txt, max 4000 char)
+      - App icon            : upload graphics/icon_512x512.png  (512×512 PNG)
+      - Feature graphic     : upload graphics/feature_graphic_1024x500.png
+      - Phone screenshot    : minimal 2 screenshot (ambil dari device saat
+                              main, atau gunakan promo_banner_1024x500.png
+                              sebagai placeholder sementara)
+      - Application type    : Game
+      - Category            : Game > Simulation  (atau Adventure)
+      - Tags                : minecraft, sandbox, building, crafting, survival
+2.3 Save.
+
+--------------------------------------------------------------------------------
+LANGKAH 3 — POLICY & APP CONTENT (WAJIB SEBELUM RILIS)
+--------------------------------------------------------------------------------
+3.1 Menu: Policy and programs → App content.
+3.2 Privacy Policy:
+      - URL privacy policy  : (hosting PRIVACY_POLICY.txt ke URL publik, lihat
+                               LANGKAH 4) → tempel URL-nya di sini.
+3.3 App access:
+      - Pilih "All functionality available without restrictions" (tidak ada
+        login/premium wall).
+3.4 Ads:
+      - Pilih "No, app does not contain ads" (App tidak menampilkan iklan).
+3.5 Content rating:
+      - Klik Start questionnaire → isi:
+          * Genre: Simulation/Building game
+          * Violence: cartoon/minimal, no blood
+          * User-generated content: YES (player builds world, multiplayer
+            chat) → pilih sesuai kondisi
+          * dll sesuai kuesioner IARC
+      - Submit → dapat rating (umumnya ESRB E10+ / PEGI 7 / IARC 10+).
+3.6 Target audience:
+      - Pilih "All ages" atau "13+" sesuai hasil content rating.
+3.7 Data safety (DATA SAFETY FORM — WAJIB & PENTING):
+      Klik Start → isi berdasarkan tabel di docs/STORE_LISTING.txt
+      bagian "Data Safety".
+      Ringkasan:
+      - Data collected: Device or other IDs, App activity (crash/usage)
+      - Data encrypted in transit: Yes (untuk network traffic update/assets)
+      - Users can request data deletion: Yes (uninstall removes local data)
+      - No location, no contacts, no photos, no financial, no health data
+3.8 Government apps / Financial features / Privacy policy URL → sesuaikan,
+    umumnya "No" untuk game ini.
+
+--------------------------------------------------------------------------------
+LANGKAH 4 — HOST PRIVACY POLICY KE URL
+--------------------------------------------------------------------------------
+Google Play Console WAJIB privacy policy di URL publik. Opsi:
+
+OPSI A (paling cepat, pakai GitHub raw):
+  1. Pastikan docs/PRIVACY_POLICY.txt sudah di-push ke repo GitHub
+     kdsmedia/MultiCraft (folder ALTOMEDIA/docs/).
+  2. URL-nya:
+     https://raw.githubusercontent.com/kdsmedia/MultiCraft/main/ALTOMEDIA/docs/PRIVACY_POLICY.txt
+  3. Tempel URL itu di Play Console > App content > Privacy Policy.
+  Catatan: GitHub raw bisa dipakai tapi Google menyarankan halaman web HTML.
+           Untuk rilis awal cukup, upgrade nanti ke domain sendiri.
+
+OPSI B (domain sendiri, recommended):
+  - Buat halaman https://altomedia.id/multicraft/privacy-policy
+    berisi isi PRIVACY_POLICY.txt (format HTML).
+
+--------------------------------------------------------------------------------
+LANGKAH 5 — SETUP APP SIGNING (PLAY APP SIGNING)
+--------------------------------------------------------------------------------
+Saat pertama upload AAB, Google Play akan minta setup Play App Signing.
+
+5.1 Pilih "Use Google-generated key" ATAU "Use existing key".
+5.2 Karena Anda sudah punya keystore (upload key):
+      - Pilih "Export and upload a key (not recommended for new apps)" TIDAK.
+      - Sebaiknya pilih "Use Google-generated app signing key" dan
+        daftarkan keystore Anda sebagai UPLOAD KEY.
+5.3 Saat diminta, upload keystore/multicraft-release.keystore sebagai
+    upload key (atau ikuti enrollment via Play Encrypt Private Key).
+5.4 Catat app signing key certificate fingerprint (SHA-1/SHA-256) yang
+    Google berikan → TAMBAHKAN ke Firebase Console project
+    altomedia-indonesia (Project settings > Android app > Add fingerprint),
+    supaya Play Games & Firebase jalan di APK final Play Store.
+
+PENTING: SHA-1 upload key Anda = 68:94:CB:4D:B1:87:95:B6:16:26:0B:31:1F:BF:2F:CA:B7:FD:92:EF
+         (sudah terdaftar di google-services.json & Firebase).
+
+--------------------------------------------------------------------------------
+LANGKAH 6 — UPLOAD AAB (PRODUCTION RELEASE)
+--------------------------------------------------------------------------------
+6.1 Menu: Release → Production (atau mulai dari Internal testing dulu).
+6.2 Klik "Create new release".
+6.3 App Bundle:
+      - Upload file: aab/MultiCraft-v1.1.11.2-vc2-20260808-release.aab
+      - Tunggu hingga "Release name" & "versionCode 2" muncul otomatis.
+6.4 Release name       : 1.1.11.2 (Build 2 — Android 8–16 fix)
+6.5 Release notes (Indonesian):
+      "MultiCraft kini mendukung Android 8 sampai 16!
+       - Perbaikan force close / crash di Android 10+ (scoped storage)
+       - Target SDK 35 (Android 15), AGP 8.7, AndroidX
+       - Layanan Google Play Games diaktifkan
+       - Izin notifikasi & foreground service untuk ekstraksi aset
+       - Stabilitas & kompatibilitas ditingkatkan"
+6.6 Klik Next → Review release → "Review release" di kanan atas.
+6.7 Perbaiki warning yang muncul (mis. data safety, target audience) →
+    setelah semua hijau → Start rollout to Production.
+
+Internal testing (opsional, recommended sebelum production):
+  - Release → Testing → Internal testing → Create release → upload AAB sama.
+  - Tambahkan tester (email), tester install via link opt-in untuk uji coba.
+
+--------------------------------------------------------------------------------
+LANGKAH 7 — VERIFIKASI & TUNGGU REVIEW
+--------------------------------------------------------------------------------
+7.1 Cek dashboard: status "In review" (1–3 hari kerja).
+7.2 Pastikan tidak ada "policy issue" di App content.
+7.3 Setelah "Published", app muncul di Play Store dalam beberapa jam.
+
+================================================================================
+BUILD arm64-v8a (UNTUK COMPLIANCE 64-BIT PLAY STORE)
+================================================================================
+AAB saat ini hanya berisi libmulticraft.so untuk armeabi-v7a (32-bit ARM).
+Google Play mewajibkan support 64-bit (arm64-v8a) untuk app baru & update
+sejak 2019. Untuk device arm64-only (Pixel 7+, sebagian Android 14/15),
+perlu native lib arm64-v8a.
+
+Langkah build arm64-v8a native lib:
+  1. Install Android NDK (versi yang support toolchain arm64, mis. NDK r21+
+     karena NDK r16b gcc 4.9 bisa bermasalah untuk arm64).
+  2. Edit build/android/Makefile:
+       Ganti:
+         TARGET_ABI = armeabi-v7a
+         TARGET_HOST = arm-linux
+         TARGET_TOOLCHAIN = arm-linux-androideabi
+         TARGET_CFLAGS_ADDON = -mfpu=vfpv3-d16 -march=armv7-a ...
+         CROSS_PREFIX = arm-linux-androideabi
+       Dengan:
+         TARGET_ABI = arm64-v8a
+         TARGET_HOST = aarch64-linux
+         TARGET_TOOLCHAIN = aarch64-linux-android
+         TARGET_CFLAGS_ADDON = -Ofast -fdata-sections -ffunction-sections \
+                               -fvisibility=hidden -flto \
+                               -D__ANDROID_API__=$(API)
+         CROSS_PREFIX = aarch64-linux-android
+  3. Build ulang SEMUA prebuilt deps dari source untuk arm64-v8a:
+         cd build/android
+         make clean_irrlicht clean_leveldb clean_curl clean_freetype \
+              clean_openal clean_luajit clean_vorbis
+         make IRRLICHT_LIB LEVELDB_LIB CURL_LIB FREETYPE_LIB OPENAL_LIB \
+              LUAJIT_LIB VORBIS_LIB sqlite
+     (Ini men-download & compile Irrlicht, LevelDB, cURL, FreeType, OpenAL,
+      LuaJIT, Vorbis, SQLite untuk arm64. Estimasi 30–60 menit.)
+     CATATAN: Beberapa library lama mungkin butuh patch agar compile di
+     arm64 (terutama LuaJIT & Irrlicht dengan NDK lama). Bila gagal,
+     gunakan NDK yang lebih baru dan sesuaikan APP_STL.
+  4. ndk-build native app untuk arm64-v8a:
+         cd build/android
+         /path/to/ndk/ndk-build APP_PLATFORM=android-21 APP_ABI=arm64-v8a \
+              NDK_PROJECT_PATH=.
+     Hasil: libs/arm64-v8a/libmulticraft.so
+  5. Edit build/android/build.gradle splits:
+         include "armeabi-v7a", "arm64-v8a"
+     (atau biarkan universal bila ingin AAB berisi kedua ABI).
+  6. Rebuild: ./gradlew clean assembleRelease bundleRelease
+  7. AAB baru akan berisi lib untuk armeabi-v7a + arm64-v8a → Play Store
+     akan serve APK arm64 ke device modern.
+
+SAMPAI arm64 ditambahkan: distribusi terbatas pada device yang support
+32-bit ARM. Mayoritas device Android 8–12 masih support 32-bit, sehingga
+app tetap bisa diuji & dirilis awal. Sebelum mendorong ke production untuk
+jangkauan penuh, selesaikan build arm64 di atas.
+
+================================================================================
+VERIFIKASI BUILD (untuk debugging)
+================================================================================
+- Cek targetSdk APK:
+    $ANDROID_HOME/build-tools/35.0.0/aapt dump badging app.apk | grep targetSdk
+    → harus: targetSdkVersion:'35'
+- Verifikasi signing APK:
+    $JAVA_HOME/bin/apksigner verify --print-certs app.apk
+- Verifikasi signing AAB:
+    $JAVA_HOME/bin/jarsigner -verify app.aab   → "jar verified."
+- Cek ABI di AAB:
+    unzip app.aab -d out && ls out/base/lib/
+    → ada folder armeabi-v7a/ (dan arm64-v8a/ setelah step di atas)
+
+================================================================================
+  AKHIR PANDUAN UPLOAD — MultiCraft v1.1.11.2 — 08 Agustus 2026
+================================================================================

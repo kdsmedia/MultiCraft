@@ -1,0 +1,255 @@
+================================================================================
+  STORE LISTING — MULTICRAFT (Google Play Store)
+  Build: v1.1.11.2 (versionCode 2) | 08 Agustus 2026
+================================================================================
+Isi field-field di Play Console > Store presence > Main store listing dan
+App content. Salin teks di bawah ke field yang sesuai.
+
+--------------------------------------------------------------------------------
+1. APP DETAILS
+--------------------------------------------------------------------------------
+App name            : MultiCraft
+Package name        : com.altomedia.multicraft
+Application type    : Game
+Category            : Game › Simulation
+Developer name      : Altomedia Indonesia
+Developer email     : altomedia.indonesia@gmail.com
+Developer website   : (opsional) https://github.com/kdsmedia/MultiCraft
+Default language    : Bahasa Indonesia (id)
+                    : (tambahkan English (en) sebagai secondary)
+
+--------------------------------------------------------------------------------
+2. SHORT DESCRIPTION (max 80 karakter)
+--------------------------------------------------------------------------------
+Versi Indonesia:
+  Bangun dunia tak terbatas! Game sandbox petualangan & crafting kreatif.
+
+Versi English:
+  Build endless worlds! Creative sandbox crafting & adventure game.
+
+--------------------------------------------------------------------------------
+3. FULL DESCRIPTION (max 4000 karakter)
+--------------------------------------------------------------------------------
+[INDONESIAN — copy ke listing Bahasa Indonesia]
+
+MultiCraft — Game Sandbox Kreatif Tanpa Batas
+=============================================
+
+Selamat datang di MultiCraft, game sandbox berkonstruksi dunia terbuka di mana
+imajinasi adalah satu-satunya batasan! Bangun, gali, jelajahi, dan bertahan
+hidup di dunia voxel tak terbatas yang penuh petualangan.
+
+Dibuat untuk para pecinta game kreatif dan survival, MultiCraft menghadirkan
+pengalaman membangun dunia yang lengkap di genggaman Anda — dari rumah sederhana
+hingga kastil megah, dari tambang bawah tanah hingga kota futuristik. Tidak ada
+batasan, tidak ada tujuan tetap — hanya kreativitas Anda yang menentukan.
+
+FITUR UTAMA
+===========
+• Dunia Tak Terbatas — Jelajahi world prosedural yang luas, setiap dunia unik
+  dengan bioma, gua, mineral, dan pemandangan berbeda.
+• Mode Kreatif & Survival — Bangun bebas dengan sumber daya tak terbatas, atau
+  tantang diri Anda bertahan hidup mengumpulkan bahan, makan, dan melawan
+  monster malam hari.
+• Crafting & Block Ratusan Item — Crafting bench, tungku peleburan, alat, senjata,
+  baju, dan ratusan jenis block untuk konstruksi kreatif.
+• Hewan & Monster — Ternak hewan, berburu, dan hadapi musuh di dunia gelap.
+• Multiplayer (jika server tersedia) — Bermain bersama teman di server
+  komunitas, berbagi karya, dan berkolaborasi membangun.
+• Mod & Texture Pack — Dukungan modding Lua dan texture pack untuk menyesuaikan
+  tampilan dan gameplay sesuai keinginan.
+• Indonesian Full Translation — Antarmuka 100% Bahasa Indonesia, ramah untuk
+  pemain lokal.
+• Performa Optimal — Dioptimasi untuk Android 8 sampai 16, ringan dan mulus di
+  berbagai perangkat.
+
+CARA BERMAIN
+============
+• Creative: Pilih block dari inventaris tak terbatas, terbang untuk melihat dunia
+  dari atas, dan bangun apa pun yang Anda bayangkan.
+• Survival: Mulai dari nol — tebang pohon, buat alat, cari makan, bangun tempat
+  berlindung sebelum malam tiba, dan eksplorasi gua berbahaya untuk mineral langka.
+
+KONTROL
+=======
+Kontrol sentuh intuitif: gerak dengan joystick virtual kiri, lihat sekeliling
+dengan kanan, ketuk untuk menambang/menempatkan block. Tombol cepat untuk
+inventaris, lompat, dan terbang.
+
+MULTICRAFT UNTUK SIAPA?
+=======================
+MultiCraft cocok untuk semua usia — anak-anak, remaja, dan dewasa yang suka
+game membangun, kreatif, dan petualangan. Tidak perlu login akun, langsung
+main setelah instal!
+
+Dukungan Google Play Games tersedia untuk achievement dan leaderboard (opsional,
+tidak wajib).
+
+CATATAN
+=======
+MultiCraft adalah game sandbox independen berbasis engine open-source. Bukan
+produk resmi Minecraft. MultiCraft tidak berafiliasi dengan Mojang/Microsoft.
+Semua aset dan kode dimodifikasi untuk pengalaman lokal Indonesia.
+
+Unduh sekarang dan mulai membangun dunia impian Anda!
+
+Kontakt: altomedia.indonesia@gmail.com
+
+---
+
+[ENGLISH — copy ke listing English]
+
+MultiCraft — Unlimited Creative Sandbox
+========================================
+
+Welcome to MultiCraft, an open-world construction sandbox where imagination is
+the only limit! Build, mine, explore, and survive in an endless voxel world full
+of adventure.
+
+Built for fans of creative and survival building games, MultiCraft brings a
+complete world-building experience to your hands — from a simple hut to a grand
+castle, from underground mines to a futuristic city.
+
+KEY FEATURES
+============
+• Endless World — Explore vast procedural worlds, each unique with biomes,
+  caves, ores, and scenery.
+• Creative & Survival Modes — Build freely with unlimited resources, or survive
+  by gathering materials, eating, and fighting night monsters.
+• Hundreds of Blocks & Items — Crafting bench, furnace, tools, weapons, armor,
+  and hundreds of block types for creative construction.
+• Animals & Monsters — Farm animals, hunt, and face enemies in the dark.
+• Multiplayer (when servers available) — Play with friends on community
+  servers, share creations, and build together.
+• Mods & Texture Packs — Lua modding and texture pack support to customize
+  look and gameplay.
+• Full Indonesian Translation — 100% Indonesian UI, friendly for local players.
+• Optimized Performance — Optimized for Android 8 through 16, lightweight and
+  smooth across devices.
+
+HOW TO PLAY
+===========
+• Creative: Pick blocks from an unlimited inventory, fly to see the world from
+  above, and build anything you imagine.
+• Survival: Start from scratch — chop wood, craft tools, find food, build
+  shelter before nightfall, and explore dangerous caves for rare ores.
+
+CONTROLS
+========
+Intuitive touch controls: move with the left virtual joystick, look around with
+the right, tap to mine/place blocks. Quick buttons for inventory, jump, and fly.
+
+WHO IS MULTICRAFT FOR?
+======================
+MultiCraft is suitable for all ages — kids, teens, and adults who love building,
+creative, and adventure games. No account login needed — just install and play!
+
+Google Play Games support available for achievements and leaderboards (optional).
+
+NOTE
+====
+MultiCraft is an independent sandbox game based on an open-source engine. It is
+not an official Minecraft product. MultiCraft is not affiliated with
+Mojang/Microsoft.
+
+Download now and start building your dream world!
+
+Contact: altomedia.indonesia@gmail.com
+
+--------------------------------------------------------------------------------
+4. GRAPHICS (upload ke Play Console)
+--------------------------------------------------------------------------------
+App icon          : ALTOMEDIA/graphics/icon_512x512.png
+                      (512×512 px PNG, 32-bit, wajib)
+Feature graphic   : ALTOMEDIA/graphics/feature_graphic_1024x500.png
+                      (1024×500 px PNG, recommended)
+Phone screenshots : Minimal 2, maksimal 8. Resolusi 320–3840px, rasio 16:9 atau 9:16.
+                    CATATAN: Screenshot tidak disediakan di paket ini.
+                    Ambil sendiri dari device/ emulator saat main game:
+                      1. Screenshot menu utama
+                      2. Screenshot sedang membangun
+                      3. Screenshot mode creative (terbang)
+                      4. Screenshot mode survival (malam/monster)
+                    Atau sementara pakai ALTOMEDIA/graphics/promo_banner_1024x500.png.
+
+--------------------------------------------------------------------------------
+5. TAGS (kategori & label)
+--------------------------------------------------------------------------------
+Tags: minecraft, sandbox, building, crafting, survival, exploration, blocks,
+      voxel, creative, adventure, multiplayer, simulation
+
+--------------------------------------------------------------------------------
+6. DATA SAFETY FORM (Play Console > App content > Data safety)
+--------------------------------------------------------------------------------
+Pilih "Yes" untuk: "Did you collect data?" → Jawab tabel berikut:
+
+Jawaban: App MENGUMPULKAN data (limited).
+
+| Data type collected        | Collected? | Purpose            | Shared? | Encrypted in transit | Deletion possible |
+|----------------------------|------------|--------------------|---------|----------------------|-------------------|
+| Device or other IDs        | Yes        | Analytics, Fraud   | No      | Yes                  | Yes (uninstall)   |
+| App activity (crashes)     | Yes        | Analytics          | No      | Yes                  | Yes (uninstall)   |
+| App interactions/usage     | Yes        | Analytics          | No      | Yes                  | Yes (uninstall)   |
+| Approximate location       | No         | —                  | —       | —                    | —                 |
+| Precise location           | No         | —                  | —       | —                    | —                 |
+| Email                      | No         | —                  | —       | —                    | —                 |
+| Personal info (name, etc.) | No         | —                  | —       | —                    | —                 |
+| Photos & videos            | No         | —                  | —       | —                    | —                 |
+| Audio data                 | No         | —                  | —       | —                    | —                 |
+| Financial info             | No         | —                  | —       | —                    | —                 |
+| Health & fitness           | No         | —                  | —       | —                    | —                 |
+| Messages                   | No         | —                  | —       | —                    | —                 |
+| Contacts                   | No         | —                  | —       | —                    | —                 |
+| Calendar                   | No         | —                  | —       | —                    | —                 |
+| Files & documents          | No*        | —                  | —       | —                    | —                 |
+  *Game data di app-private storage, TIDAK mengakses file user lain.
+
+Security practices:
+  - Data encrypted in transit         : Yes
+  - Users can request data deletion   : Yes (uninstall menghapus data lokal)
+  - Independent security review       : No (opsional)
+
+Data tidak dibagikan ke pihak ketiga kecuali untuk operasi (Google Play Services,
+Firebase) yang diproses di bawah kebijakan masing-masing.
+
+--------------------------------------------------------------------------------
+7. CONTENT RATING (IARC questionnaire)
+--------------------------------------------------------------------------------
+Jawab kuesioner IARC sebagai berikut:
+  - Violence: "Cartoon violence" — minimal, no blood ( Fantasy/Comic )
+  - Violence realism: No realistic violence
+  - User-generated content: YES (player builds, chat multiplayer) → pilih
+    "User-generated content with filters/monitoring"
+  - Language: Mild language possible (user chat)
+  - Online interactivity: YES (multiplayer server)
+  - Personal info sharing: No
+  - Digital goods purchase: No (no in-app purchases)
+  - Unrestricted internet access: YES
+  Hasil rating estimasi: IARC 10+ / ESRB E10+ / PEGI 7 / USK 6 / ClassInd 10.
+  Gunakan hasil yang muncul otomatis.
+
+--------------------------------------------------------------------------------
+8. TARGET AUDIENCE
+--------------------------------------------------------------------------------
+  Target age groups: "All ages" atau "13+" (sesuai hasil content rating)
+  Children-oriented app: "No" (sebagai game sandbox umum; pilih "Yes" bila
+  Anda inginmasuk ke program Designed for Families — perlu syarat ekstra).
+
+--------------------------------------------------------------------------------
+9. GOVERNMENT / FINANCIAL / ADS / PRIVACY POLICY URL
+--------------------------------------------------------------------------------
+  Government app             : No
+  Financial features         : No
+  App contains ads           : No  (App TIDAK menampilkan iklan)
+  Privacy Policy URL         : https://raw.githubusercontent.com/kdsmedia/MultiCraft/main/ALTOMEDIA/docs/PRIVACY_POLICY.txt
+                                (atau URL domain sendiri, lihat UPLOAD_GUIDE LANGKAH 4)
+
+--------------------------------------------------------------------------------
+10. APP ACCESS (APPROVAL)
+--------------------------------------------------------------------------------
+  App access: "All functionality available without restrictions"
+  (Tidak ada login/premium/akses terbatas — user langsung main)
+
+================================================================================
+  AKHIR STORE LISTING — MultiCraft v1.1.11.2 — 08 Agustus 2026
+================================================================================
