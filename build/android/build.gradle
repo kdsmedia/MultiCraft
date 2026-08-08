@@ -4,16 +4,11 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
-        // google-services plugin: by default it pulls play-services 11.4.2,
-        // whose bundled support-v4 (25.x) clashes with support-compat:27.1.1
-        // ("Multiple dex files define Landroid/support/v4/content/res/TypedArrayUtils").
-        // Uncomment this line AND the apply-plugin line at the file bottom once
-        // you add an actual Firebase/Google-services SDK dependency
-        // (e.g. com.google.firebase:firebase-analytics). The plugin is needed
-        // to read build/android/google-services.json; kept off now because this
-        // app currently has no Firebase/Google dependency, only the json is here.
-        //classpath 'com.google.gms:google-services:3.3.0'
+        // AGP 8.7 supports compileSdk 35 (Android 15) and requires Gradle 8.9+
+        // and JDK 17+. This enables targetSdkVersion 35 so the app targets
+        // Android 8 (API 26) through Android 16 (API 36).
+        classpath 'com.android.tools.build:gradle:8.7.0'
+        classpath 'com.google.gms:google-services:4.4.2'
     }
 }
 
@@ -22,20 +17,38 @@ allprojects {
         google()
         mavenCentral()
     }
+    // Force a single Kotlin stdlib version. The Play services libraries pull
+    // kotlin-stdlib-jdk7/jdk8 1.6.21, which clashes with kotlin-stdlib 1.8.22
+    // (duplicate classes). Forcing everything to 1.8.22 resolves the dex
+    // duplicate-class error.
+    configurations.all {
+        resolutionStrategy.force 'org.jetbrains.kotlin:kotlin-stdlib:1.8.22',
+                'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22',
+                'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22'
+    }
 }
 
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    namespace "com.altomedia.multicraft"
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.altomedia.multicraft"
         minSdkVersion 21
-        targetSdkVersion 27
+        targetSdkVersion 35
         versionCode 1
         versionName "1.1.11.2"
+        // Play services adds enough methods to exceed the 65k DEX limit.
+        // minSdk 21 uses native multidex (no extra dependency needed).
+        multiDexEnabled true
+    }
+
+    // Compile Java against JDK 17 language level (JDK 21 runs the build).
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 	Properties props = new Properties()
 	props.load(new FileInputStream(file("local.properties")))
@@ -83,14 +96,20 @@ android.applicationVariants.all { variant ->
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:support-compat:27.1.1'
+    // AndroidX replacements for the legacy com.android.support libraries.
+    implementation 'androidx.core:core:1.13.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    // Google Play Games services + sign-in. 23.2.0 is built against AndroidX
+    // and is compatible with compileSdk 35 / AGP 8.7.
+    implementation 'com.google.android.gms:play-services-games:23.2.0'
+    implementation 'com.google.android.gms:play-services-auth:21.2.0'
+    implementation 'com.google.android.gms:play-services-base:18.5.0'
+    implementation 'com.google.android.gms:play-services-tasks:18.2.0'
 }
 
 // Apply the google-services plugin LAST so it can read
-// build/android/google-services.json and inject Firebase API keys / app id.
-// Commented out for now: the plugin pulls play-services 11.4.2 by default,
-// whose support-v4 clashes with support-compat:27.1.1 (duplicate
-// TypedArrayUtils). Enable it together with the buildscript classpath above
-// when you add a real Firebase/Google-services SDK dependency.
-//apply plugin: 'com.google.gms.google-services'
+// build/android/google-services.json and inject the Firebase / Play app id
+// (used by Play Games services for the app_id in res/values/games-ids.xml).
+apply plugin: 'com.google.gms.google-services'
 

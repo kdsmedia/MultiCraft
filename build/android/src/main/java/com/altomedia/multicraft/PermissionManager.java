@@ -3,16 +3,15 @@ package com.altomedia.multicraft;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.preference.PreferenceManager;
-import android.support.v4.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
 
 import java.util.ArrayList;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
-import static com.altomedia.multicraft.PreferencesHelper.TAG_RESTORE_BACKUP;
+import static android.Manifest.permission.POST_NOTIFICATIONS;
 import static com.altomedia.multicraft.PreferencesHelper.getLaunchTimes;
-import static com.altomedia.multicraft.PreferencesHelper.saveSettings;
 
 class PermissionManager {
     static ArrayList<String> permissionsToRequest;
@@ -27,8 +26,20 @@ class PermissionManager {
 
     String[] requestPermissions() {
         ArrayList<String> permissions = new ArrayList<>();
-        permissions.add(WRITE_EXTERNAL_STORAGE);
+        // WRITE_EXTERNAL_STORAGE is intentionally NOT requested anymore:
+        // since the game stores data in Context.getExternalFilesDir(null)
+        // (app-specific storage), no storage permission is needed on
+        // Android 5.0+ (API 21+). On Android 11+ (API 30+) the system
+        // auto-denies WRITE_EXTERNAL_STORAGE for app-specific storage, which
+        // previously caused the app to loop forever on the permission prompt
+        // and appear to hang / force-close.
         permissions.add(ACCESS_COARSE_LOCATION);
+        // Android 13+ (API 33+): POST_NOTIFICATIONS is a runtime permission.
+        // It is needed by the UnzipService foreground notification. On older
+        // versions it is a normal permission (granted at install).
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            permissions.add(POST_NOTIFICATIONS);
+        }
         //filter out the permissions we have already accepted
         permissionsToRequest = findUnAskedPermissions(permissions);
         //get the permissions we have asked for before but are not granted..
@@ -50,10 +61,6 @@ class PermissionManager {
     }
 
     private boolean shouldWeAsk(String permission) {
-        if (getLaunchTimes() > 1 && permission.equals(WRITE_EXTERNAL_STORAGE)) {
-            sharedPreferences.edit().clear().apply();
-            saveSettings(TAG_RESTORE_BACKUP, true);
-        }
         return sharedPreferences.getBoolean(permission, true);
     }
 

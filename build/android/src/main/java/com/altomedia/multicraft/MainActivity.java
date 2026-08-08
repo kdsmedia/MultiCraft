@@ -1,6 +1,5 @@
 package com.altomedia.multicraft;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
@@ -16,11 +15,10 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
@@ -37,7 +35,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static com.altomedia.multicraft.PreferencesHelper.TAG_BUILD_NUMBER;
 import static com.altomedia.multicraft.PreferencesHelper.TAG_CONSENT_ASKED;
 import static com.altomedia.multicraft.PreferencesHelper.TAG_LAUNCH_TIMES;
@@ -54,12 +51,13 @@ public class MainActivity extends Activity implements WVersionManager.ActivityLi
     public final static int REQUEST_CODE = 104;
     private final static String TAG = "Error";
     private final static String CREATE_SHORTCUT = "com.android.launcher.action.INSTALL_SHORTCUT";
-    private final static String FILES = Environment.getExternalStorageDirectory() + "/Files.zip";
-    private final static String WORLDS = Environment.getExternalStorageDirectory() + "/worlds.zip";
-    private final static String GAMES = Environment.getExternalStorageDirectory() + "/games.zip";
+    // Temporary zip files are written to the app's cache dir (no permission
+    // needed, always writable on API 21+). Initialized in onCreate.
+    private static String FILES;
+    private static String WORLDS;
+    private static String GAMES;
     private final static String NOMEDIA = ".nomedia";
     private final static int COARSE_LOCATION_RESULT = 100;
-    private final static int WRITE_EXTERNAL_RESULT = 101;
     private final static int ALL_PERMISSIONS_RESULT = 102;
     private static final String UPDATE_LINK = "https://raw.githubusercontent.com/kdsmedia/MultiCraft/main/android-update/ver.txt";
     private static final String[] EU_COUNTRIES = new String[]{
@@ -68,8 +66,13 @@ public class MainActivity extends Activity implements WVersionManager.ActivityLi
             "HU", "IE", "IT", "LV", "LT", "LU",
             "MT", "NL", "PL", "PT", "RO", "SK",
             "SI", "ES", "SE", "GB", "IS", "LI", "NO"};
-    private static String dataFolder = "/Android/data/com.altomedia.multicraft/files/";
-    public static String unzipLocation = Environment.getExternalStorageDirectory() + dataFolder;
+    // App-specific external storage (Context.getExternalFilesDir(null)) ->
+    // /storage/emulated/0/Android/data/com.altomedia.multicraft/files/
+    // Always writable without WRITE_EXTERNAL_STORAGE on API 21+ and not
+    // affected by scoped storage on Android 10/11/12/13/14. Initialized in
+    // onCreate. Must stay in sync with the native path_user in
+    // src/porting_android.cpp (initializePathsAndroid).
+    public static String unzipLocation;
     private ProgressBar mProgressBar;
     private ProgressBar mProgressBarIndeterminate;
     private TextView mLoading;
@@ -101,6 +104,18 @@ public class MainActivity extends Activity implements WVersionManager.ActivityLi
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_main);
         loadSettings(this);
+        // Initialize storage paths using app-specific dirs so the app works
+        // on Android 5.0 -> 14+ without WRITE_EXTERNAL_STORAGE and without
+        // being affected by scoped storage.
+        File externalFilesDir = getExternalFilesDir(null);
+        if (externalFilesDir == null) {
+            externalFilesDir = getFilesDir();
+        }
+        unzipLocation = externalFilesDir.getAbsolutePath() + "/";
+        File cacheDir = getCacheDir();
+        FILES = cacheDir.getAbsolutePath() + "/Files.zip";
+        WORLDS = cacheDir.getAbsolutePath() + "/worlds.zip";
+        GAMES = cacheDir.getAbsolutePath() + "/games.zip";
         IntentFilter filter = new IntentFilter(UnzipService.ACTION_UPDATE);
         registerReceiver(myReceiver, filter);
         if (!isTaskRoot()) {
@@ -255,32 +270,10 @@ public class MainActivity extends Activity implements WVersionManager.ActivityLi
         }
     }
 
-    private void requestPermissionAfterExplain() {
-        Toast.makeText(this, R.string.explain, Toast.LENGTH_LONG).show();
-        ActivityCompat.requestPermissions(MainActivity.this,
-                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_EXTERNAL_RESULT);
-    }
-
-    private void requestStoragePermission() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-            requestPermissionAfterExplain();
-        } else {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    WRITE_EXTERNAL_RESULT);
-        }
-    }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         switch (requestCode) {
-            case WRITE_EXTERNAL_RESULT:
-                if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    askGdpr();
-                } else {
-                    requestStoragePermission();
-                }
-                break;
             case COARSE_LOCATION_RESULT:
                 break;
             case ALL_PERMISSIONS_RESULT:
@@ -289,14 +282,15 @@ public class MainActivity extends Activity implements WVersionManager.ActivityLi
                         PermissionManager.permissionsRejected.add(perms);
                     }
                 }
-                if (PermissionManager.permissionsRejected.size() == 0) {
-                    askGdpr();
-                } else if (!Arrays.asList(PermissionManager.permissionsRejected.toArray()).contains(WRITE_EXTERNAL_STORAGE)) {
+                // The only requested permission now is ACCESS_COARSE_LOCATION,
+                // which is optional. Proceed regardless of the result so the
+                // game never blocks on a permission prompt (previously the app
+                // could loop on WRITE_EXTERNAL_STORAGE and appear to hang /
+                // force-close on Android 11+).
+                if (PermissionManager.permissionsRejected.size() > 0) {
                     Toast.makeText(this, R.string.location, Toast.LENGTH_SHORT).show();
-                    askGdpr();
-                } else {
-                    requestStoragePermission();
                 }
+                askGdpr();
                 break;
         }
     }

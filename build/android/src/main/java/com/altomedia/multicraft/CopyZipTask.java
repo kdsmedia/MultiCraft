@@ -3,6 +3,7 @@ package com.altomedia.multicraft;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.util.Log;
 import android.view.View;
 
@@ -68,12 +69,17 @@ public class CopyZipTask extends AsyncTask<String, Void, String> {
     }
 
     private void startUnzipService(String[] file) {
-        // Start MyIntentService
+        // Start the UnzipService. On Android 8+ (Oreo / API 26+) a foreground
+        // service must be started with startForegroundService(); the service
+        // then calls startForeground() within ~5 seconds (see UnzipService).
         Intent intentMyIntentService = new Intent(contextRef.get(), UnzipService.class);
         intentMyIntentService.putExtra(UnzipService.EXTRA_KEY_IN_FILE, file);
         intentMyIntentService.putExtra(UnzipService.EXTRA_KEY_IN_LOCATION, unzipLocation);
-        contextRef.get().startService(intentMyIntentService);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            contextRef.get().startForegroundService(intentMyIntentService);
+        } else {
+            contextRef.get().startService(intentMyIntentService);
+        }
     }
 
     void setListener(CallBackListener listener) {

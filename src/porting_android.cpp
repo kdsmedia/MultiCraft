@@ -192,10 +192,28 @@ static std::string getAndroidPath(jclass cls, jobject obj, jclass cls_File,
 	return javaStringToUTF8(js_path);
 }
 
+// Calls an instance method taking a (nullable) String argument and returning a
+// File, then resolves its absolute path. Used for Context.getExternalFilesDir(String)
+// which is app-specific storage — always writable on Android 5.0+ (API 21+),
+// requires no runtime permission, and is not affected by scoped storage on
+// Android 10/11+. Replaces the legacy Environment.getExternalStorageDirectory()
+// approach that crashed (force-close) on Android 10+.
+static std::string getAndroidPathStrArg(jclass cls, jobject obj, jclass cls_File,
+		jmethodID mt_getAbsPath, const char *method, jstring arg)
+{
+	jmethodID mt_getter = jnienv->GetMethodID(cls, method,
+			"(Ljava/lang/String;)Ljava/io/File;");
+
+	jobject ob_file = jnienv->CallObjectMethod(obj, mt_getter, arg);
+
+	jstring js_path = (jstring) jnienv->CallObjectMethod(ob_file,
+			mt_getAbsPath);
+
+	return javaStringToUTF8(js_path);
+}
+
 void initializePathsAndroid()
 {
-	// Get Environment class
-	jclass cls_Env = jnienv->FindClass("android/os/Environment");
 	// Get File class
 	jclass cls_File = jnienv->FindClass("java/io/File");
 	// Get getAbsolutePath method
@@ -204,9 +222,22 @@ void initializePathsAndroid()
 
 	path_cache   = getAndroidPath(nativeActivity, app_global->activity->clazz,
 			cls_File, mt_getAbsPath, "getCacheDir");
-	path_storage = getAndroidPath(cls_Env, NULL, cls_File, mt_getAbsPath,
-			"getExternalStorageDirectory");
-	path_user    = path_storage + DIR_DELIM + "Android/data/com.altomedia.multicraft/Files";
+	// Use app-specific external storage (Context.getExternalFilesDir(null))
+	// instead of the shared Environment.getExternalStorageDirectory().
+	// The app-specific dir is /storage/emulated/0/Android/data/<pkg>/files
+	// and is always writable without WRITE_EXTERNAL_STORAGE on API 21+,
+	// so the game stops force-closing on Android 10/11/12/13/14.
+	path_storage = getAndroidPathStrArg(nativeActivity,
+			app_global->activity->clazz, cls_File, mt_getAbsPath,
+			"getExternalFilesDir", NULL);
+	// path_user must equal the Java-side unzipLocation exactly
+	// (.../Android/data/com.altomedia.multicraft/files). Previously the
+	// native side appended "/Android/data/.../Files" (capital F) which on
+	// Android's case-sensitive filesystem was a DIFFERENT directory than
+	// the Java-side ".../files" (lowercase f), so the engine never found
+	// the unzipped game data. Since getExternalFilesDir(null) already
+	// resolves to .../files, use it directly.
+	path_user    = path_storage;
 	path_share   = path_user;
 	path_locale  = path_user + DIR_DELIM + "locale";
 }

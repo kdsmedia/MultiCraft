@@ -1,12 +1,15 @@
 package com.altomedia.multicraft;
 
-import android.app.IntentService;
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ServiceInfo;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
+import android.os.IBinder;
+import androidx.core.app.NotificationCompat;
 import android.util.Log;
 
 import java.io.File;
@@ -18,67 +21,87 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 
-public class UnzipService extends IntentService {
+// Previously extended IntentService, which is deprecated and does not support
+// the Android 14+ (targetSdk 34+) foreground-service type requirement. This
+// is now a plain Service that promotes itself to a foreground service (type
+// dataSync) so long-running extraction is not killed by the system, and works
+// on Android 8 through 16.
+public class UnzipService extends Service {
     public static final String ACTION_UPDATE = "com.altomedia.multicraft.UPDATE";
     public static final String EXTRA_KEY_IN_FILE = "file";
     public static final String EXTRA_KEY_IN_LOCATION = "location";
     public static final String ACTION_PROGRESS = "progress";
     public final String TAG = UnzipService.class.getSimpleName();
+    private static final String CHANNEL_ID = "MultiCraft channel";
+    private static final int NOTIFICATION_ID = 1;
+
     private NotificationManager mNotifyManager;
-    private int id = 1;
+    private Thread mWorker;
 
-    public UnzipService() {
-        super("com.altomedia.multicraft.UnzipService");
-    }
-
-    private void isDir(String dir, String unzipLocation) {
-        File f = new File(unzipLocation + dir);
-
-        if (!f.isDirectory()) {
-            f.mkdirs();
-        }
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
     }
 
     @Override
-    protected void onHandleIntent(Intent intent) {
-        createNotification();
-        unzip(intent);
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        // Promote to a foreground service BEFORE starting heavy work. On
+        // Android 14+ (targetSdk 34+) a foreground service that declares
+        // foregroundServiceType="dataSync" must be started with that type.
+        Notification notification = buildNotification();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            startForeground(NOTIFICATION_ID, notification,
+                    ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC);
+        } else {
+            startForeground(NOTIFICATION_ID, notification);
+        }
 
+        final Intent workIntent = intent;
+        mWorker = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                unzip(workIntent);
+                stopSelf();
+            }
+        });
+        mWorker.start();
+        // START_NOT_STICKY: if the process is killed, do not restart the
+        // extraction automatically (the user can re-trigger it).
+        return START_NOT_STICKY;
     }
 
-    private void createNotification() {
-        // There are hardcoding only for show it's just strings
+    private Notification buildNotification() {
         String name = "com.altomedia.multicraft";
-        String channelId = "MultiCraft channel"; // The user-visible name of the channel.
-        String description = "notifications from MultiCraft"; // The user-visible description of the channel.
-        NotificationCompat.Builder builder;
+        String description = "notifications from MultiCraft";
         if (mNotifyManager == null) {
             mNotifyManager =
                     (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            int importance = NotificationManager.IMPORTANCE_LOW;
-            NotificationChannel mChannel = mNotifyManager.getNotificationChannel(channelId);
+            NotificationChannel mChannel = mNotifyManager.getNotificationChannel(CHANNEL_ID);
             if (mChannel == null) {
-                mChannel = new NotificationChannel(channelId, name, importance);
+                mChannel = new NotificationChannel(CHANNEL_ID, name,
+                        NotificationManager.IMPORTANCE_LOW);
                 mChannel.setDescription(description);
-                //Configure the notification channel, NO SOUND
                 mChannel.setSound(null, null);
                 mChannel.enableLights(false);
                 mChannel.enableVibration(false);
                 mNotifyManager.createNotificationChannel(mChannel);
             }
-            builder = new NotificationCompat.Builder(this, channelId);
-            builder.setContentTitle(getString(R.string.notification_title))  // required
-                    .setSmallIcon(R.drawable.update) // required
-                    .setContentText(getString(R.string.notification_description)); // required
-        } else {
-            builder = new NotificationCompat.Builder(this);
-            builder.setContentTitle(getString(R.string.notification_title))
-                    .setContentText(getString(R.string.notification_description))
-                    .setSmallIcon(R.drawable.update);
         }
-        mNotifyManager.notify(id, builder.build());
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID);
+        builder.setContentTitle(getString(R.string.notification_title))
+                .setSmallIcon(R.drawable.update)
+                .setContentText(getString(R.string.notification_description))
+                .setOngoing(true);
+        return builder.build();
+    }
+
+    private void isDir(String dir, String unzipLocation) {
+        File f = new File(unzipLocation + dir);
+        if (!f.isDirectory()) {
+            f.mkdirs();
+        }
     }
 
     private void unzip(Intent intent) {
@@ -144,7 +167,7 @@ public class UnzipService extends IntentService {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mNotifyManager.cancel(id);
+        mNotifyManager.cancel(NOTIFICATION_ID);
         publishProgress(-1);
     }
 }
