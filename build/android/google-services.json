@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "739146490998",
+    "project_id": "altomedia-indonesia",
+    "storage_bucket": "altomedia-indonesia.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739146490998:android:78408b6ad38444cf4eeb57",
+        "android_client_info": {
+          "package_name": "com.altomedia.multicraft"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsMHZDFF-93Z1xJDWEpsaqyi6s2juXkLI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739146490998:android:1cb3cf09800cf10f4eeb57",
+        "android_client_info": {
+          "package_name": "com.altomedia.stonekingdom"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsMHZDFF-93Z1xJDWEpsaqyi6s2juXkLI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
